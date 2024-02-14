@@ -45,7 +45,7 @@ const HomePage = () => {
         </section>
       </main>
       <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} GamersHub. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} GamersHub. All rights reserved</p>
       </footer>
     </div>
   );
