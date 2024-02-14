@@ -7,6 +7,7 @@ const admin = require('firebase-admin');
 const { ExpressPeerServer } = require('peer');
 const bodyParser = require('body-parser'); // Add this line
 const ProductRoutes = require('../Routes/ProductsRoutes'); // Add this line
+const cors =require("cors");
 
 
 const app = express();
@@ -16,7 +17,7 @@ const port = process.env.PORT || 4000;
 const peerServer = ExpressPeerServer(server, {
   debug: true
 });
-
+app.use(cors())
 app.use('/peerjs', peerServer);
 app.use(bodyParser.json()); // Add this line
 app.use('/products', ProductRoutes); // Add this line

@@ -1,19 +1,19 @@
-'use client'
 import React from 'react';
 import Link from 'next/link';
+import './Home.css'; // Adjust the import to match the file name
 
 const HomePage = () => {
   return (
     <div>
-      <header>
+      <header className="header">
         <h1>Welcome to GamersHub</h1>
         <nav>
           <ul>
-            <li><Link href="/games"><a>Games</a></Link></li>
-            <li><Link href="/community"><a>Community</a></Link></li>
-            <li><Link href="/about"><a>About Us</a></Link></li>
-            <li><Link href="/login"><a>Login</a></Link></li>
-            <li><Link href="/signup"><a>Sign Up</a></Link></li>
+            <li><Link href="/games">Games</Link></li>
+            <li><Link href="/community">Community</Link></li>
+            <li><Link href="/about">About Us</Link></li>
+            <li><Link href="/login">Login</Link></li>
+            <li><Link href="/signup">Sign Up</Link></li>
           </ul>
         </nav>
       </header>
@@ -22,7 +22,7 @@ const HomePage = () => {
           <div className="hero-content">
             <h2>Discover Your Next Adventure</h2>
             <p>Explore a vast collection of games, connect with other gamers, and stay up-to-date with the latest gaming news.</p>
-            <Link href="/games"><a className="btn">Explore Games</a></Link>
+            <Link href="/games" className="btn">Explore Games</Link>
           </div>
         </section>
         <section className="featured-games">
@@ -44,7 +44,7 @@ const HomePage = () => {
           </div>
         </section>
       </main>
-      <footer>
+      <footer className="footer">
         <p>&copy; {new Date().getFullYear()} GamersHub. All rights reserved.</p>
       </footer>
     </div>
