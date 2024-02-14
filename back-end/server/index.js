@@ -5,6 +5,9 @@ const http = require('http');
 const ChatEngine = require('chat-engine');
 const admin = require('firebase-admin');
 const { ExpressPeerServer } = require('peer');
+const bodyParser = require('body-parser'); // Add this line
+const ProductRoutes = require('../Routes/ProductsRoutes'); // Add this line
+
 
 const app = express();
 const server = http.createServer(app);
@@ -15,6 +18,8 @@ const peerServer = ExpressPeerServer(server, {
 });
 
 app.use('/peerjs', peerServer);
+app.use(bodyParser.json()); // Add this line
+app.use('/products', ProductRoutes); // Add this line
 
 // const serviceAccount = require('../');
 // admin.initializeApp({
