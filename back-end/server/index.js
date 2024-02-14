@@ -7,7 +7,7 @@ const admin = require('firebase-admin');
 const { ExpressPeerServer } = require('peer');
 const bodyParser = require('body-parser'); // Add this line
 const ProductRoutes = require('../Routes/ProductsRoutes'); // Add this line
-
+const Postes = require('../Routes/Postes')
 
 const app = express();
 const server = http.createServer(app);
@@ -20,6 +20,7 @@ const peerServer = ExpressPeerServer(server, {
 app.use('/peerjs', peerServer);
 app.use(bodyParser.json()); // Add this line
 app.use('/products', ProductRoutes); // Add this line
+app.use("/postes", Postes)
 
 // const serviceAccount = require('../');
 // admin.initializeApp({
