@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
  
@@ -70,7 +70,11 @@
   * {
     @apply border-border;
   }
+<<<<<<< HEAD
   body {
     @apply bg-background text-foreground;
   }
 }
+=======
+} */
+>>>>>>> e842f7a63a1b86264ec2d8cc5d9ce18d6c4e61b2
