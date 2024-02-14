@@ -8,6 +8,7 @@ const { ExpressPeerServer } = require('peer');
 const bodyParser = require('body-parser'); // Add this line
 const ProductRoutes = require('../Routes/ProductsRoutes'); // Add this line
 const Postes = require('../Routes/Postes')
+const userRoutes = require('../Routes/user');
 
 const app = express();
 const server = http.createServer(app);
@@ -21,6 +22,7 @@ app.use('/peerjs', peerServer);
 app.use(bodyParser.json()); // Add this line
 app.use('/products', ProductRoutes); // Add this line
 app.use("/postes", Postes)
+app.use('/users', userRoutes)
 
 // const serviceAccount = require('../');
 // admin.initializeApp({

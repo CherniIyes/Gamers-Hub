@@ -1,8 +1,8 @@
 'use client'
-// import { useAuthState } from 'react-firebase-hooks/auth';
-// import { auth } from './firebase/config.js';
-// import { useRouter } from 'next/navigation';
-// import { signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from './firebase/config.js';
+import { useRouter } from 'next/navigation';
+import { signOut } from 'firebase/auth';
 
 export default function Home() {
   // const [user] = useAuthState(auth);

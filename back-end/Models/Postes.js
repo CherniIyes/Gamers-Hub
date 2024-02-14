@@ -2,7 +2,7 @@ const connection=require('../database/index.js')
 
 
 const getAll=(callback)=>{
-    const query='SELECT * FROM news'
+    const query='SELECT * FROM postes'
     connection.query(query,(err,result)=>{
         if(err){
             callback(err,null)
@@ -13,7 +13,7 @@ const getAll=(callback)=>{
 }
 
 const getOne=(id,callback)=>{
-    const query='SELECT FROM news WHERE id=?'
+    const query='SELECT FROM postes WHERE id=?'
     connection.query(query,[id],(err,result)=>{
         if(err){
             callback(err,null)
@@ -24,7 +24,7 @@ const getOne=(id,callback)=>{
 }
 const add=(newsData,callback)=>{
     const{title,image,description,date}=newsData
-    const query='INSERT INTO news SET ?'
+    const query='INSERT INTO postes SET ?'
     connection.query(query,newsData,(err,result)=>{
         if(err){
             callback(err,null)
@@ -34,7 +34,7 @@ const add=(newsData,callback)=>{
     })
 }
 const Delete=(newsId,callback)=>{
-    const query='DELETE FROM news WHERE id=?'
+    const query='DELETE FROM postes WHERE id=?'
     connection.query(query,newsId,(err,result)=>{
         if(err){
             callback(err,null)
@@ -45,7 +45,7 @@ const Delete=(newsId,callback)=>{
 }
 const update=(newsId,newsData,callback)=>{
     const {title,image,description,date}=newsData
-    const query= 'UPDATE  news SET  title=?,image=?,description=?,date=?  WHERE id= ? '
+    const query= 'UPDATE  postes SET  title=?,description=?  WHERE id= ? '
     connection.query(query,[title,image,description,date,newsId],(err,result)=>{
         if(err){
             callback(err,null)
@@ -55,7 +55,7 @@ const update=(newsId,newsData,callback)=>{
     })
 }
 const searchByTitle = (searchTerm, callback) => {
-    const query = 'SELECT * FROM news WHERE title LIKE ?';
+    const query = 'SELECT * FROM postes WHERE title LIKE ?';
     const searchValue = `%${searchTerm}%`; // To search for titles containing the searchTerm
     connection.query(query, [searchValue], (err, result) => {
         if (err) {
