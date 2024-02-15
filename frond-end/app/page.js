@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react';
-import Product from './Products/product'; // Ensure correct path to the Product component
+import Product from './Products/page'; // Ensure correct path to the Product component
 // import { useAuthState } from 'react-firebase-hooks/auth'; // Firebase-related import commented out
 // import { auth } from './firebase/config'; // Import Firebase auth configuration - commented out
 // import { useRouter } from 'next/router'; // Import the correct module - commented out
@@ -37,7 +37,7 @@ export default function Page() {
       {/* <div>page</div>
       <h1>product</h1> */}
       <Home/>
-      <Product /> {/* Render the Product component */}
+{/* Render the Product component */}
       {/* <main className="flex min-h-screen flex-col items-center justify-between p-24"> // Firebase-related code commented out
         <button onClick={handleLogout}>Log out</button> // Firebase-related code commented out
       </main> */}

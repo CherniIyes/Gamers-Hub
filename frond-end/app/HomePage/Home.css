@@ -1,109 +1,178 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  nav ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  main {
-    padding: 5px;
-  }
-  
-  /* Hero Section */
-  .hero {
-    background-image: url('https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg');
-    background-size: cover;
-    color: #f8f3f3;
-    padding: 130px 0;
-    text-align: center;
-  }
-  
-  .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .hero h2 {
-    font-size: 36px;
-  }
-  
-  .hero p {
-    font-size: 18px;
-  }
-  
-  .btn {
-    display: inline-block;
-    background-color: #f44336;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-  
-  .btn:hover {
-    background-color: #d32f2f;
-  }
-  
-  /* Featured Games Section */
-  .featured-games {
-    margin-top: 50px;
-  }
-  
-  .game-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 20px;
-  }
-  
-  /* Latest News Section */
-  .latest-news {
-    margin-top: 50px;
-  }
-  
-  .news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 20px;
-  }
-  
-  /* Trending Discussions Section */
-  .trending-discussions {
-    margin-top: 50px;
-  }
-  
-  .discussion-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px;
-  }
-  
-  /* Footer */
-  footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-  }
-  
+/* Home.css */
+
+/* Header styles */
+.header {
+  background-color:url('https://img.freepik.com/free-vector/gradient-futuristic-background-with-lights_52683-74115.jpg?w=1060&t=st=1707992416~exp=1707993016~hmac=4f0c357fd17d1d87a5efdda910a89c7e48ecc333db06709020f05efabf77e77e');
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+}
+
+.header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.header nav ul li a:hover {
+  color: #ffc107;
+}
+
+/* Hero section styles */
+.hero {
+  background-image: url('https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.hero .btn {
+  display: inline-block;
+  background-color: #ff0;
+  color: #000;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.hero .btn:hover {
+  background-color: #ffc107;
+}
+
+/* Featured games section styles */
+.featured-games {
+  background-color: #222;
+  color: #fff;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.featured-games h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Latest news section styles */
+.latest-news {
+  background-color: #444;
+  color: #fff;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.latest-news h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Trending discussions section styles */
+.trending-discussions {
+  background-color: #666;
+  color: #fff;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.trending-discussions h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.discussion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Footer styles */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer p {
+  font-size: 1rem;
+}
+
+.footer p a {
+  color: #ffc107;
+  text-decoration: none;
+}
+
+.footer p a:hover {
+  text-decoration: underline;
+}
+/* Home.css */
+
+/* Navbar styles */
+.navbar {
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: #333;
+}
+
+/* Section styles */
+.section {
+  transition: background-color 0.3s ease;
+}
+
+.section.scrolled {
+  background-color: #222;
+}
+/* Navbar.css */
+
+.navbar-bg {
+  background-image: url('https://img.freepik.com/free-vector/gradient-futuristic-background-with-lights_52683-74115.jpg?w=1060&t=st=1707992416~exp=1707993016~hmac=4f0c357fd17d1d87a5efdda910a89c7e48ecc333db06709020f05efabf77e77e');
+  background-size: cover;
+  background-position: center;
+}
+
