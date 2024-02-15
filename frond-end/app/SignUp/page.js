@@ -1,10 +1,12 @@
-
+// SignUp.js
 'use client';
 
 import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase/config';
 import { useRouter } from 'next/navigation';
+import '../globals.css'
+import game1 from '../../images/game1.png';
 
 const SignUp = () => {
   const [email, setEmail] = useState('');
@@ -47,8 +49,10 @@ const SignUp = () => {
   
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900">
+    <div className="min-h-screen flex items-center justify-center bg-gray-900"  >
+  <img src={game1} alt="Game 1" width={400} height={300} />
       <div className="signup-container">
+        
         <h1 className="text-white text-2xl mb-5">Sign Up</h1>
         <input
           type="firstName"

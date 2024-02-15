@@ -1,5 +1,5 @@
 // server.js
-
+const cors = require('cors');
 const express = require('express');
 const http = require('http');
 const ChatEngine = require('chat-engine');
@@ -17,7 +17,7 @@ const port = process.env.PORT || 4000;
 const peerServer = ExpressPeerServer(server, {
   debug: true
 });
-
+app.use(cors());
 app.use('/peerjs', peerServer);
 app.use(bodyParser.json()); // Add this line
 app.use('/products', ProductRoutes); // Add this line
