@@ -78,43 +78,27 @@ const Community = () => {
                               🔻
                         </span>
                   </div> */}
-
-
-                  <div className='search'>
-                        <div className="postes">
-                              <div className="FIND-HUBS">FIND HUBS</div>
-                              <input
-                                    className='searchh-inputt'
-                                    type="text"
-                                    placeholder="Search for something..."
-                                    value={searchTerm}
-                                    onChange={handleSearchTermChange}
-                              />
-                              <AiOutlineSearch className="searchh-buttonn" onClick={handleSearchButtonClick} />
+                  <div className='top-shelf'>
+                        <div className='search'>
+                              <div className="postes">
+                                    <div className="FIND-HUBS">FIND HUBS</div>
+                                    <input
+                                          className='searchh-inputt'
+                                          type="text"
+                                          placeholder="Search for something..."
+                                          value={searchTerm}
+                                          onChange={handleSearchTermChange}
+                                    />
+                                    <AiOutlineSearch className="searchh-buttonn" onClick={handleSearchButtonClick} />
+                              </div>
                         </div>
-                  </div>
 
-
-                  {/* <div className='search-user'>
-                        <div className="postes">
-                              <div className="FIND-HUBS">FIND HUBS</div>
-                              <input
-                                    className='searchh-inputt'
-                                    type="text"
-                                    placeholder="Search for something..."
-                                    value={searchTerm}
-                                    onChange={handleSearchTermChange}
-                              />
-                              <AiOutlineSearch className="searchh-buttonn" onClick={handleSearchButtonClick} />
+                        <div className='next'>
+                              <div className='some'>cant find it ? be the first to add it</div>
+                              <button>Create A Hub</button>
                         </div>
-                  </div> */}
 
-
-                  <div className='next'>
-                        <div className='some'>cant find it ? be the first to add it</div>
-                        <button>Create A Hub</button>
                   </div>
-
 
                   <div className="community-container">
                         {postes.map((post) => (
