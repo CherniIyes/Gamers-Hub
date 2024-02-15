@@ -26,7 +26,7 @@ app.use('/users', userRoutes)
 
 app.use('/peerjs', peerServer);
 
-const serviceAccount = require('../gamershubtn-d9e43-firebase-adminsdk-be9cu-bf55f265b4.json');
+const serviceAccount = require('./gamershubtn-d9e43-firebase-adminsdk-be9cu-7da513987d.json');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
@@ -38,6 +38,30 @@ const chatEngine = ChatEngine.create({
   subscribeKey: '6284f0d3-eeb4-4a22-9a8a-dfdf36118f9f'
 });
 
+
+app.post("/authenticate", async (req, res) => {
+  const { username } = req.body;
+  
+  try {
+    const response = await axios.put(
+      'https://api.chatengine.io/users/',
+      { username: username, secret: username, first_name: username },
+      { headers: { "private-key": "e72422c1-d3c4-4a1f-bcd8-8b099bdc689d" } }
+    );
+
+    return res.status(response.status).json(response.data);
+  } catch (error) {
+
+    if (error.response) {
+      // If there's a response, extract the status code and response data
+      const { status, data } = error.response;
+      return res.status(status).json(data);
+    } else {
+      // If there's no response, handle the error as a generic server error
+      return res.status(500).json({ error: "Internal Server Error" });
+    }
+  }
+});
 // Remove the incorrect call to connect() method
 
 app.get('/token/:username', async (req, res) => {
