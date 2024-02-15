@@ -12,6 +12,7 @@
   "dependencies": {
     "chat-engine": "^0.9.21",
     "cloudinary": "^2.0.1",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "firebase-admin": "^12.0.0",
     "jsonwebtoken": "^9.0.2",
