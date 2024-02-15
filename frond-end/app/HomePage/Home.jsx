@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import './Home.css'; // Adjust the import to match the file name
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+
+
 
 const HomePage = () => {
   const [scrolled, setScrolled] = useState(false);
   const [featuredGames, setFeaturedGames] = useState([]);
   const [latestNews, setLatestNews] = useState([]);
   const [trendingDiscussions, setTrendingDiscussions] = useState([]);
+  const [currentSlide, setCurrentSlide] = useState(0)
 
   useEffect(() => {
     // Simulating fetching data from an API
@@ -18,7 +23,7 @@ const HomePage = () => {
         { id: 3, title: 'The Horus Heresy: Legions', description: 'Horus Heresy is a board game that pits two players against each other to recreate the most famous battle of Warhammer 40,000s rich history', imageUrl: 'https://www.stillfront.com/en/wp-content/uploads/sites/2/2019/05/stillfront-featured-games-horus-heresy-legions-featured-image.jpg' }
       ];
       setFeaturedGames(data);
-    };
+    }
 
     const fetchLatestNews = async () => {
       // Simulated data for latest news
@@ -61,6 +66,15 @@ const HomePage = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [scrolled]);
+  
+  const nextSlide = () => {
+    setCurrentSlide((currentSlide + 1) % latestNews.length);
+  };
+
+  // Function to handle previous slide
+  const prevSlide = () => {
+    setCurrentSlide((currentSlide - 1 + latestNews.length) % latestNews.length);
+  };
 
   return (
     <div>
@@ -95,17 +109,20 @@ const HomePage = () => {
           </div>
         </section>
         <section className={`latest-news section ${scrolled ? 'scrolled' : ''}`}>
-          <h2>Latest News</h2>
-          <div className="news-grid">
-            {latestNews.map(news => (
-              <div key={news.id} className="news-card">
-                <img src={news.imageUrl} alt={news.title} />
-                <h3>{news.title}</h3>
-                <p>{news.content}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+  <h2>Latest News</h2>
+  <Splide options={{ type: 'loop', perPage: 3, focus: 'center' }}>
+    {latestNews.map(news => (
+      <SplideSlide key={news.id}>
+        <div className="news-card">
+          <img src={news.imageUrl} alt={news.title} />
+          <h3>{news.title}</h3>
+          <p>{news.content}</p>
+        </div>
+      </SplideSlide>
+    ))}
+  </Splide>
+</section>
+
         <section className={`trending-discussions section ${scrolled ? 'scrolled' : ''}`}>
           <h2>Trending Discussions</h2>
           <div className="discussion-grid">

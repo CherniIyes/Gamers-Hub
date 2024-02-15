@@ -2,7 +2,7 @@
 
 /* Header styles */
 .header {
-  background-color:url('https://img.freepik.com/free-vector/gradient-futuristic-background-with-lights_52683-74115.jpg?w=1060&t=st=1707992416~exp=1707993016~hmac=4f0c357fd17d1d87a5efdda910a89c7e48ecc333db06709020f05efabf77e77e');
+  background-color: black;
   color: #fff;
   padding: 20px 0;
   text-align: center;
@@ -176,3 +176,7 @@
   background-position: center;
 }
 
+.news-card{
+  position: relative;
+  top: -5px;
+}

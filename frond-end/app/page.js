@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react';
-import Product from './Products/page'; // Ensure correct path to the Product component
 // import { useAuthState } from 'react-firebase-hooks/auth'; // Firebase-related import commented out
 // import { auth } from './firebase/config'; // Import Firebase auth configuration - commented out
 // import { useRouter } from 'next/router'; // Import the correct module - commented out
