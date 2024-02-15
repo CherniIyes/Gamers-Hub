@@ -9,7 +9,7 @@ const bodyParser = require('body-parser'); // Add this line
 const ProductRoutes = require('../Routes/ProductsRoutes'); // Add this line
 const Postes = require('../Routes/Postes')
 const userRoutes = require('../Routes/user');
-const cors =require("cors");
+
 
 
 const app = express();
