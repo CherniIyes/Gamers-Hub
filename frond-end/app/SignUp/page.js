@@ -1,4 +1,4 @@
-// SignUp.js
+// // SignUp.js
 'use client';
 
 import React, { useState } from 'react';
@@ -100,5 +100,5 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+// export default SignUp;
 
