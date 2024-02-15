@@ -24,3 +24,11 @@ model user {
   birth     String @db.VarChar(45)
   password  String @db.VarChar(45)
 }
+
+model postes {
+  id             Int     @id @default(autoincrement())
+  title          String  @db.VarChar(80)
+  description    String  @db.VarChar(1000)
+  bigdescription String? @db.LongText
+  user           String? @db.VarChar(45)
+}

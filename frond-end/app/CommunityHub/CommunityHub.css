@@ -1,31 +1,94 @@
 /* Add this CSS to your stylesheet or component */
 .community-container {
       display: flex;
+      justify-content: center;
+      flex-direction: row;
       flex-wrap: wrap;
-      justify-content: space-around;
+      align-content: baseline;
+      align-items: self-end;
+      width: 1900px;
+      position: relative;
+      top: 267px;
 }
 
+.community-card:hover {
+      border: 1.5px solid #2f89bc;
+}
+
+.community-card:hover .community-title {
+      background-color: #2f88bc5d;
+}
+
+
 .community-card {
-      width: 300px;
-      padding: 20px;
-      margin: 15px;
-      border: 1px solid #2c2f33;
-      border-radius: 8px;
-      background-color: #282c31;
+      width: 561px;
+      height: 279px;
+      padding: 9px;
+      margin: 9px;
+      background-color: #0d131b;
       color: #ffffff;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .community-title {
+      position: relative;
+      top: 224px;
       font-size: 18px;
       font-weight: bold;
       margin-bottom: 10px;
-      color: #66c0f4;
+      color: #807d7d;
 }
 
 .community-description {
       font-size: 14px;
-      color: #b0b0b0;
+      color: #ffffff;
+      position: relative;
+      bottom: 43px;
 }
 
-/* Add any additional styling as needed */
+.search {
+      position: relative;
+      width: 344px;
+      top: 35px;
+      left: 1387px;
+      height: 192px;
+      background-color: #0d131b;
+}
+
+.searchh-inputt {
+      position: relative;
+      top: 41px;
+      left: 25px;
+      width: 213px;
+      height: 30px;
+      border-radius: 0px;
+      font-size: 11px;
+}
+
+.searchh-buttonn {
+      position: relative;
+      top: -5px;
+      left: 200px;
+      width: 45px;
+      height: 21px;
+      /* font-size: 10px; */
+      /* padding: 7px 11px; */
+      color: white;
+}
+
+.searchh-buttonn:hover {
+      cursor: pointer;
+}
+
+.postes {
+      position: relative;
+      left: 40px;
+      bottom: 20px;
+}
+
+.FIND-HUBS {
+      position: relative;
+      width: 88px;
+      color: #8f98a0;
+      font-size: 12px;
+      top: 26px;
+}
