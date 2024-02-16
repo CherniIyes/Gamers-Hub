@@ -4,6 +4,8 @@ import axios from 'axios';
 import { AiOutlineSearch } from "react-icons/ai";
 import './CommunityHub.css';
 import Link from 'next/link';
+import HomePage from '../HomePage/page';
+import { useRouter } from 'next/router';
 
 const Community = () => {
       const [postes, setPostes] = useState([]);
@@ -21,14 +23,21 @@ const Community = () => {
       const [newComment, setNewComment] = useState({
             text: '',
       });
+      const router = useRouter();
 
-
+      const handleHomepageClick = () => {
+            router.push('/');
+      };
 
 
 
       useEffect(() => {
             getAllPostes();
-      }, []);
+            // Fetch comments for the selected post if there is one
+            if (selectedPost) {
+                  handleCardClick2(selectedPost);
+            }
+      }, [selectedPost]);
 
       const handleCardClick2 = async (post) => {
             setSelectedPost(post);
@@ -140,10 +149,10 @@ const Community = () => {
             <div className='all'>
 
                   <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-                        <h1>Welcome to GamersHub</h1>
+                        <h1 onClick={handleHomepageClick}>Welcome to GamersHub</h1>
                         <nav>
                               <ul>
-                                    <li><Link href="/games">Games</Link></li>
+                                    <li><Link href="/HomePage">Home</Link></li>
                                     <li><Link href="/community">Community</Link></li>
                                     <li><Link href="/about">About Us</Link></li>
                               </ul>
