@@ -1,8 +1,11 @@
+// HomePage.js
+
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import './Home.css'; // Adjust the import to match the file name
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+import Navbar from '../Navbar/Page'; // Import the Navbar component
 
 const HomePage = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -43,16 +46,7 @@ const HomePage = () => {
 
   return (
     <div className='mainne'>
-      {/* <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-        <h1>Welcome to GamersHub</h1>
-        <nav>
-          <ul>
-            <li><Link href="/p">Games</Link></li>
-            <li><Link href="/CommunityHub">Community</Link></li>
-            <li><Link href="/about">About Us</Link></li>
-          </ul>
-        </nav>
-      </header> */}
+      <Navbar /> {/* Include the Navbar component */}
       <main>
         <section className={`hero ${scrolled ? 'scrolled' : ''}`}>
           <div className="hero-content">
@@ -79,7 +73,7 @@ const HomePage = () => {
             {latestNews.map(news => (
               <SplideSlide key={news.id}>
                 <div className="news-card">
-                  <img src={news.imageUrl} alt={news.title} /
+                  <img src={news.imageUrl} alt={news.title} />
                   <h3>{news.title}</h3>
                   <p>{news.content}</p>
                 </div>
