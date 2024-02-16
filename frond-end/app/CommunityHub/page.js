@@ -5,7 +5,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import './CommunityHub.css';
 import Link from 'next/link';
 import HomePage from '../HomePage/page';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const Community = () => {
       const [postes, setPostes] = useState([]);
@@ -26,6 +26,7 @@ const Community = () => {
       const router = useRouter();
 
       const handleHomepageClick = () => {
+            // Use the push method to redirect to the homepage
             router.push('/');
       };
 
