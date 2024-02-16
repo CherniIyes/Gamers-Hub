@@ -73,7 +73,7 @@ const login = async (email, password, callback) => {
 
         console.log("Attempting to register user:", user);
 
-        const connectionPromise = require('../database/index'); // Import the promise-based connection
+        const connectionPromise = require('../database/index');
 
         await connectionPromise.promise().query(
             'INSERT INTO `user` set firstName=?,lastName=?, email=?, birth=?, password=?',

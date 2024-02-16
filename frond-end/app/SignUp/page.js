@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase/config';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import axios from 'axios';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import {GoogleProvider } from '../firebase/config'
@@ -29,6 +30,9 @@ const SignUp = () => {
     const handleSignUp = async () => {
       try {
           // Password validation
+          setTimeout(()=>{ router.push('/');},1500)
+         
+
           const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/;
           if (!passwordRegex.test(password)) {
               alert("Password must contain at least one capital letter, one number, and one symbol (!@#$%^&*)");
@@ -52,6 +56,8 @@ const SignUp = () => {
               birth,
               password
           });
+          router.push('/');
+
           console.log('Registration API response:', registerResponse);
   
           // Store the user's email in session storage
@@ -62,7 +68,7 @@ const SignUp = () => {
           setBirth('');
           setFirst('');
           setLast('');
-          router.push('/HomePage');
+          router.push('/');
           alert("Sign up successful");
       } catch (e) {
           console.error(e);
@@ -131,7 +137,7 @@ const SignUp = () => {
                 <img className='ll'  onClick={handleGoogleSignUp} src="https://miro.medium.com/v2/resize:fit:1400/1*u0bwdudgoyKjSLntsRcqiw.png" alt="" />
                 <h4>or</h4>
                 <button
-                    onClick={handleSignIn }
+                    onClick={handleSignIn}
                     className="signup-btn"
                 >
                     Sign In
