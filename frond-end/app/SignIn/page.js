@@ -19,7 +19,6 @@ const SignIn = () => {
             return;
         }
 
-        // Make API call to authenticate the user
         const loginResponse = await axios.post('http://localhost:4000/users/login', {
             email,
             password,

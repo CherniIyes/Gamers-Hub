@@ -6,7 +6,7 @@ import { auth } from '../firebase/config';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
-import {GoogleProvider } from '@/app/firebase/config'
+import {GoogleProvider } from '../firebase/config'
 import '../globals.css';
 import game1 from '../../images/game1.png';
 

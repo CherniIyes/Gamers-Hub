@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 const getAll = (callback) => {
-    const query = 'SELECT * FROM user ';  
+    const query = 'SELECT * FROM user ';
     connection.query(query, (err, result) => {
         if (err) {
             callback(err, null);
@@ -15,7 +15,7 @@ const getAll = (callback) => {
 
 
 const getUser = (emailTerm, callback) => {
-    const query = 'SELECT * FROM user WHERE email = ?';  
+    const query = 'SELECT * FROM user WHERE email = ?';
     connection.query(query, [emailTerm], (err, result) => {
         if (err) {
             callback(err, null);
