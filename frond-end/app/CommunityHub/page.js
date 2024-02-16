@@ -115,26 +115,26 @@ const Community = () => {
       const handleCommentSubmit = async (e) => {
             e.preventDefault();
             try {
-                // Send a request to add a new comment with the user's name and comment text
-                const response = await axios.post('http://localhost:4000/comments/add', {
-                    postId: selectedPost.id,
-                    user: newHubData.user, // Assuming user information is available
-                    text: newComment.text,
-                });
-        
-                // Assuming the response.data is an object with comment details
-                const newCommentData = response.data;
-        
-                // Update the comments state with the new comment
-                setComments([...comments, newCommentData]);
-        
-                // Reset the new comment form
-                setNewComment({ text: '' });
+                  const response = await axios.post('http://localhost:4000/comments/add', {
+                        postId: selectedPost.id,
+                        user: newHubData.user,
+                        text: newComment.text,
+                  });
+
+                  // Assuming the response.data is an object with comment details
+                  const newCommentData = response.data;
+
+                  // Update the comments state using the setComments function
+                  setComments((prevComments) => [...prevComments, newCommentData]);
+
+                  // Reset the new comment form
+                  setNewComment({ text: '' });
             } catch (error) {
-                console.error('Error adding comment:', error);
+                  console.error('Error adding comment:', error);
+                  // Handle the error here, e.g., show a user-friendly message or log it
             }
-        };
-        
+      };
+
 
       return (
             <div className='all'>
