@@ -18,6 +18,9 @@ const Community = () => {
             user: '',
       });
       const [comments, setComments] = useState([]);
+      const [newComment, setNewComment] = useState({
+            text: '',
+      });
 
 
 
@@ -109,6 +112,30 @@ const Community = () => {
             }
       };
 
+      const handleCommentSubmit = async (e) => {
+            e.preventDefault();
+            try {
+                // Send a request to add a new comment with the user's name and comment text
+                const response = await axios.post('http://localhost:4000/comments/add', {
+                    postId: selectedPost.id,
+                    user: newHubData.user, // Assuming user information is available
+                    text: newComment.text,
+                });
+        
+                // Assuming the response.data is an object with comment details
+                const newCommentData = response.data;
+        
+                // Update the comments state with the new comment
+                setComments([...comments, newCommentData]);
+        
+                // Reset the new comment form
+                setNewComment({ text: '' });
+            } catch (error) {
+                console.error('Error adding comment:', error);
+            }
+        };
+        
+
       return (
             <div className='all'>
 
@@ -176,8 +203,39 @@ const Community = () => {
                                           <h3>{selectedPost.title}</h3>
                                           <p>{selectedPost.description}</p>
                                           <p>{selectedPost.bigdescription}</p>
+
+                                          {/* Display comments */}
+                                          <div className="comments-section">
+                                                <h4>Comments</h4>
+                                                {comments.map((comment) => (
+                                                      <div key={comment.id} className="comment">
+                                                            <strong>{comment.user}</strong>: {comment.text}
+                                                      </div>
+                                                ))}
+                                          </div>
+
+                                          {/* Form for users to submit new comments */}
+                                          <div className="add-comment-form">
+                                                <h4>Add a Comment</h4>
+                                                <form onSubmit={handleCommentSubmit}>
+                                                      <div className="form-group">
+                                                            <label htmlFor="commentText">Comment:</label>
+                                                            <textarea
+                                                                  id="commentText"
+                                                                  name="commentText"
+                                                                  rows="4"
+                                                                  cols="50"
+                                                                  value={newComment.text}
+                                                                  onChange={(e) => setNewComment({ ...newComment, text: e.target.value })}
+                                                                  required
+                                                            ></textarea>
+                                                      </div>
+                                                      <button type="submit">Submit Comment</button>
+                                                </form>
+                                          </div>
                                     </div>
                               </div>
+
                         </div>
                   )}
 
