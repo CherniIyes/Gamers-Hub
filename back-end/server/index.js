@@ -9,11 +9,11 @@ const { ExpressPeerServer } = require('peer');
 const ProductRoutes = require('../Routes/ProductsRoutes'); // Add this line
 const Postes = require('../Routes/Postes')
 const userRoutes = require('../Routes/user');
-const cors = require ('cors')
+const cors = require('cors')
 const app = express();
 const server = http.createServer(app);
 const port = process.env.PORT || 4000;
-
+const commentRoutes = require('../Routes/CommentRoutes');
 const peerServer = ExpressPeerServer(server, {
   debug: true
 });
@@ -24,7 +24,7 @@ app.use(express.json()); // Add this line
 app.use('/products', ProductRoutes); // Add this line
 app.use("/postes", Postes)
 app.use('/users', userRoutes)
-
+app.use('/comments', commentRoutes);
 
 
 app.use('/peerjs', peerServer);
@@ -44,7 +44,7 @@ const chatEngine = ChatEngine.create({
 
 app.post("/authenticate", async (req, res) => {
   const { username } = req.body;
-  
+
   try {
     const response = await axios.put(
       'https://api.chatengine.io/users/',

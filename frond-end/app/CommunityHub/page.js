@@ -17,10 +17,27 @@ const Community = () => {
             bigdescription: '',
             user: '',
       });
+      const [comments, setComments] = useState([]);
+
+
+
+
 
       useEffect(() => {
             getAllPostes();
       }, []);
+
+      const handleCardClick2 = async (post) => {
+            setSelectedPost(post);
+            try {
+                  const response = await axios.get(`http://localhost:4000/comments/getComments?postId=${post.id}`);
+                  if (Array.isArray(response.data)) {
+                        setComments(response.data);
+                  }
+            } catch (error) {
+                  console.error('Error fetching comments:', error);
+            }
+      };
 
       const handleSearchTermChange = (event) => {
             setSearchTerm(event.target.value);
