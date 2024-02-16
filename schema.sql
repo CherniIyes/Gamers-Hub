@@ -1,37 +1,21 @@
 -- MySQL Workbench Forward Engineering
-
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
+SET @OLD_UNIQUE_CHECKS = @@UNIQUE_CHECKS,
+  UNIQUE_CHECKS = 0;
+SET @OLD_FOREIGN_KEY_CHECKS = @@FOREIGN_KEY_CHECKS,
+  FOREIGN_KEY_CHECKS = 0;
+SET @OLD_SQL_MODE = @@SQL_MODE,
+  SQL_MODE = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
 -- -----------------------------------------------------
 -- Schema gamershub
 -- -----------------------------------------------------
-
 -- -----------------------------------------------------
 -- Schema gamershub
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `gamershub` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
-USE `gamershub` ;
-
--- -----------------------------------------------------
--- Table `gamershub`.`product`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `gamershub`.`product` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(100) NOT NULL,
-  `description` VARCHAR(250) NOT NULL,
-  `price` VARCHAR(50) NOT NULL,
-  `image` VARCHAR(250) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
+CREATE SCHEMA IF NOT EXISTS `gamershub` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `gamershub`;
 -- -----------------------------------------------------
 -- Table `gamershub`.`user`
 -- -----------------------------------------------------
@@ -42,12 +26,33 @@ CREATE TABLE IF NOT EXISTS `gamershub`.`user` (
   `email` VARCHAR(405) NOT NULL,
   `birth` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB AUTO_INCREMENT = 2 DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+-- -----------------------------------------------------
+-- Table `gamershub`.`postes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gamershub`.`postes` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(80) NOT NULL,
+  `description` VARCHAR(1000) NOT NULL,
+  `bigdescription` LONGTEXT NULL DEFAULT NULL,
+  `user` VARCHAR(45) NULL DEFAULT NULL,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `user_id`),
+  INDEX `fk_postes_user_idx` (`user_id` ASC) VISIBLE,
+  CONSTRAINT `fk_postes_user` FOREIGN KEY (`user_id`) REFERENCES `gamershub`.`user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE = InnoDB AUTO_INCREMENT = 5 DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+-- -----------------------------------------------------
+-- Table `gamershub`.`product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `gamershub`.`product` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(100) NOT NULL,
+  `description` VARCHAR(250) NOT NULL,
+  `price` VARCHAR(50) NOT NULL,
+  `image` VARCHAR(250) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+SET SQL_MODE = @OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS = @OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS = @OLD_UNIQUE_CHECKS;

@@ -1,21 +1,22 @@
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp ,getApps, getApp } from "firebase/app";
+import {getAuth} from 'firebase/auth'
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDlbPaxkE79_QNQ8_sAO3izNvfYddLBa8Y",
-  authDomain: "gamershubtn-d9e43.firebaseapp.com",
-  projectId: "gamershubtn-d9e43",
-  storageBucket: "gamershubtn-d9e43.appspot.com",
-  messagingSenderId: "1076671216519",
-  appId: "1:1076671216519:web:3804e80c420d536814f122"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 }
 
 
 
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
-export default { app, analytics };
+const auth = getAuth(app);
+
+export { app, auth };
