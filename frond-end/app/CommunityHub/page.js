@@ -10,7 +10,13 @@ const Community = () => {
       const [searchTerm, setSearchTerm] = useState('');
       const [selectedPost, setSelectedPost] = useState(null)
       const [scrolled, setScrolled] = useState(false);
-
+      const [showCreateHubPopup, setShowCreateHubPopup] = useState(false);
+      const [newHubData, setNewHubData] = useState({
+            title: '',
+            description: '',
+            bigdescription: '',
+            user: '',
+      });
 
       useEffect(() => {
             getAllPostes();
@@ -56,6 +62,36 @@ const Community = () => {
             setSelectedPost(null);
       };
 
+
+      const handleCreateHubClick = () => {
+            // Show the Create Hub popup
+            setShowCreateHubPopup(true);
+      };
+
+      const handleCloseCreateHubPopup = () => {
+            // Hide the Create Hub popup and reset form data
+            setShowCreateHubPopup(false);
+            setNewHubData({
+                  title: '',
+                  description: '',
+                  bigdescription: '',
+                  user: '', // Reset other fields if needed
+            });
+      };
+
+      const handleCreateHubSubmit = async () => {
+            try {
+                  // Send a request to create a new hub with newHubData
+                  await axios.post('http://localhost:4000/postes/add', newHubData);
+                  // Refresh the list of hubs
+                  getAllPostes();
+                  // Close the Create Hub popup
+                  handleCloseCreateHubPopup();
+            } catch (error) {
+                  console.error('Error creating hub:', error);
+            }
+      };
+
       return (
             <div className='all'>
 
@@ -95,7 +131,7 @@ const Community = () => {
 
                         <div className='next'>
                               <div className='some'>cant find it ? be the first to add it</div>
-                              <button>Create A Hub</button>
+                              <button onClick={handleCreateHubClick}>Create A Hub</button>
                         </div>
 
                   </div>
@@ -126,6 +162,32 @@ const Community = () => {
                                     </div>
                               </div>
                         </div>
+                  )}
+
+                  {showCreateHubPopup && (
+                        <>
+                              {/* Overlay to prevent interactions outside the popup */}
+                              <div className="overlay" onClick={handleCloseCreateHubPopup}></div>
+
+                              <div className="create-hub-popup">
+                                    <div className="popupp">
+                                          <div className="popup-headerp">
+                                                <span onClick={handleCloseCreateHubPopup}>&times;</span>
+                                          </div>
+                                          <div className="popup-contentp">
+                                                <h3>Create a New Hub</h3>
+                                                <input
+                                                      type="text"
+                                                      placeholder="Title"
+                                                      value={newHubData.title}
+                                                      onChange={(e) => setNewHubData({ ...newHubData, title: e.target.value })}
+                                                />
+                                                {/* Add other input fields for description, bigdescription, user, etc. */}
+                                                <button onClick={handleCreateHubSubmit}>Create Hub</button>
+                                          </div>
+                                    </div>
+                              </div>
+                        </>
                   )}
             </div>
       );
