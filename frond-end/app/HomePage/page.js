@@ -79,7 +79,7 @@ const HomePage = () => {
             {latestNews.map(news => (
               <SplideSlide key={news.id}>
                 <div className="news-card">
-                  <img src={news.imageUrl} alt={news.title} />
+                  <img src={news.imageUrl} alt={news.title} /
                   <h3>{news.title}</h3>
                   <p>{news.content}</p>
                 </div>
