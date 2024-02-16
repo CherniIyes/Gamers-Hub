@@ -5,15 +5,29 @@ const http = require('http');
 const ChatEngine = require('chat-engine');
 const admin = require('firebase-admin');
 const { ExpressPeerServer } = require('peer');
+
+const socketIO = require('socket.io');
 // const bodyParser = require('body-parser'); // Add this line
+// const ProductRoutes = require('../Routes/ProductsRoutes'); // Add this line
+// const Postes = require('../Routes/Postes')
+// const userRoutes = require('../Routes/user');
+// const bodyParser = require('body-parser'); // Add this line
+
 const ProductRoutes = require('../Routes/ProductsRoutes'); // Add this line
 const Postes = require('../Routes/Postes')
 const userRoutes = require('../Routes/user');
+const latestGames=require("../Routes/FeaturedGamesRoutes")
+const latestNews=require("../Routes/LatestNewsRoutes")
+const trending=require("../Routes/TrendingDiscussionRoutes")
+
 const cors = require('cors')
 const app = express();
 const server = http.createServer(app);
 const port = process.env.PORT || 4000;
-const commentRoutes = require('../Routes/CommentRoutes');
+const commentRoutes = require('../Routes/CommentRoutes');const { Server } = require('socket.io');
+
+
+const io = new Server(server);
 const peerServer = ExpressPeerServer(server, {
   debug: true
 });
@@ -24,7 +38,10 @@ app.use(express.json()); // Add this line
 app.use('/products', ProductRoutes); // Add this line
 app.use("/postes", Postes)
 app.use('/users', userRoutes)
-app.use('/comments', commentRoutes);
+app.use('/comments', commentRoutes);app.use("/games",latestGames)
+app.use("/new",latestNews)
+app.use("/trending",trending)
+
 
 
 app.use('/peerjs', peerServer);
@@ -81,33 +98,21 @@ app.get('/token/:username', async (req, res) => {
 });
 
 // Instead, handle authentication after ChatEngine is ready
-chatEngine.on('$.ready', () => {
-  console.log('ChatEngine is ready');
+// chatEngine.on('$.ready', () => {
+//   console.log('ChatEngine is ready');
 
-  // Connect user after ChatEngine is ready
-  const me = chatEngine.connect('username', {
-    signedOnTime: Date.now(),
-    authKey: 'auth-key'
-  });
 
-  me.on('$.online', () => {
-    console.log('You are online');
-  });
+// io.on('connection', (socket) => {
+//   console.log('A user connected');
 
-  me.on('$.offline', () => {
-    console.log('You are offline');
-  });
+//   socket.on('disconnect', () => {
+//     console.log('A user disconnected');
+//   });
+// });
 
-  chatEngine.global.on('voice-chat-offer', (payload) => {
-    // Broadcast voice chat offer
-    chatEngine.global.emit('voice-chat-offer', payload);
-  });
-
-  chatEngine.global.on('voice-chat-answer', (payload) => {
-    // Broadcast voice chat answer
-    chatEngine.global.emit('voice-chat-answer', payload);
-  });
-});
+// server.listen(3000, () => {
+//   console.log('Socket.io server is running on port 3000');
+// });
 
 // const serviceAccount = require('../');
 // admin.initializeApp({

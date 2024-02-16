@@ -4,7 +4,6 @@ import axios from 'axios';
 import { AiOutlineSearch } from "react-icons/ai";
 import './CommunityHub.css';
 import Link from 'next/link';
-import HomePage from '../HomePage/page';
 import { useRouter } from 'next/navigation';
 
 const Community = () => {
@@ -25,10 +24,7 @@ const Community = () => {
       });
       const router = useRouter();
 
-      const handleHomepageClick = () => {
-            // Use the push method to redirect to the homepage
-            router.push('/');
-      };
+
 
 
 
@@ -148,17 +144,7 @@ const Community = () => {
 
       return (
             <div className='all'>
-
-                  <header className={`header ${scrolled ? 'scrolled' : ''}`}>
-                        <h1 onClick={handleHomepageClick}>Welcome to GamersHub</h1>
-                        <nav>
-                              <ul>
-                                    <li><Link href="/HomePage">Home</Link></li>
-                                    <li><Link href="/community">Community</Link></li>
-                                    <li><Link href="/about">About Us</Link></li>
-                              </ul>
-                        </nav>
-                  </header>
+                  {/* <button onClick={() => { console.log("welcome") && router.push('/') }}>Welcome to GamersHub</button> */}
 
                   {/* <div className="nav">
                         <span className="items" >
@@ -171,6 +157,7 @@ const Community = () => {
                   <div className='top-shelf'>
                         <div className='search'>
                               <div className="postes">
+
                                     <div className="FIND-HUBS">FIND HUBS</div>
                                     <input
                                           className='searchh-inputt'
