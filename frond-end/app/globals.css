@@ -2,77 +2,128 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+@layer base {
+  * {
+    @apply border-border;
+  }
 
-@layer utilities {
+  body {
+    @apply bg-background text-foreground;
+  }
+} */
+
+/* @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-} */
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #ced3f1;
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
+} */ */
+body{
+  background-color: #000000;
 }
 
 .signup-container {
   display: flex;
   flex-direction: column;
-  width: 300px;
-  padding: 40px;
+  width: 320px;
+  padding: 25px;
   background-color:transparent;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 2px 4px rgba(124, 61, 219, 0.2);
+   margin-left: 3%;
+   margin-top: 0%;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 40px;
+  color: #fff;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: xx-large;
 }
 
 input {
-  padding: 12px;
+  padding: 5px;
   border-radius: 4px;
-  border: 0.1px solid  #afafba;
+  border: 0.1px solid #afafba;
   margin-bottom: 20px;
   font-size: 16px;
   width: 100%;
-  background-color: transparent;
+  background-color:rgb(9, 9, 60);
+  box-shadow: 0 0 2px 1px #007bff;  
+  color: #fff;
 }
 
 input:focus {
   outline: none;
-  box-shadow: 0 0 2px 1px #007bff;
+
 }
 
 button {
-  background-color: #007bff;
+  background-color: #150b6e;
   color: #fff;
   padding: 12px 24px;
   border: none;
@@ -138,3 +189,27 @@ button:disabled {
   width: 56px;
 }
 
+h4{
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50%;
+}
+
+/* signup.css */
+
+.background-blur {
+  position: relative;
+}
+
+.background-blur::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://assets-global.website-files.com/646557ee455c3e16e4a9bcb3/64ed5632e0c52c100c16f293_bg-gamers.webp');
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(3px); /* Adjust the blur intensity as needed */
+  z-index: -1;
+}

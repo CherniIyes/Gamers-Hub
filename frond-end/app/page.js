@@ -3,6 +3,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './firebase/config';
 import { useRouter } from 'next/navigation';
 import { signOut } from 'firebase/auth';
+import Hhome from './HomePage/page'
+
 
 export default function Home() {
   const [user] = useAuthState(auth);
@@ -29,8 +31,11 @@ export default function Home() {
   };
 
   return (
+    <div>
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <button onClick={handleLogout}>Log out</button>
     </main>
+    <Hhome/>
+    </div>
   );
 }
