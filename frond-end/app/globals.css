@@ -31,48 +31,49 @@ body {
     text-wrap: balance;
   }
 } */
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #ced3f1;
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
+body{
+  background-color: #000000;
 }
 
 .signup-container {
   display: flex;
   flex-direction: column;
-  width: 300px;
-  padding: 40px;
+  width: 320px;
+  padding: 25px;
   background-color:transparent;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 18px;
+  box-shadow: 0 2px 4px rgba(124, 61, 219, 0.2);
+   margin-left: 3%;
+   margin-top: 0%;
 }
 
 h1 {
   text-align: center;
   margin-bottom: 40px;
+  color: #fff;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: xx-large;
 }
 
 input {
-  padding: 12px;
+  padding: 5px;
   border-radius: 4px;
   border: 0.1px solid  #afafba;
   margin-bottom: 20px;
   font-size: 16px;
   width: 100%;
-  background-color: transparent;
+  background-color:rgb(9, 9, 60);
+  box-shadow: 0 0 2px 1px #007bff;  
+  color: #fff;
 }
 
 input:focus {
   outline: none;
-  box-shadow: 0 0 2px 1px #007bff;
+
 }
 
 button {
-  background-color: #007bff;
+  background-color: #150b6e;
   color: #fff;
   padding: 12px 24px;
   border: none;
@@ -138,3 +139,27 @@ button:disabled {
   width: 56px;
 }
 
+h4{
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50%;
+}
+
+/* signup.css */
+
+.background-blur {
+  position: relative;
+}
+
+.background-blur::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('https://assets-global.website-files.com/646557ee455c3e16e4a9bcb3/64ed5632e0c52c100c16f293_bg-gamers.webp');
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(3px); /* Adjust the blur intensity as needed */
+  z-index: -1;
+}
