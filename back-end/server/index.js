@@ -12,7 +12,13 @@ const socketIO = require('socket.io');
 // const Postes = require('../Routes/Postes')
 // const userRoutes = require('../Routes/user');
 // const bodyParser = require('body-parser'); // Add this line
-/
+
+const ProductRoutes = require('../Routes/ProductsRoutes'); // Add this line
+const Postes = require('../Routes/Postes')
+const userRoutes = require('../Routes/user');
+const latestGames=require("../Routes/FeaturedGamesRoutes")
+const latestNews=require("../Routes/LatestNewsRoutes")
+const trending=require("../Routes/TrendingDiscussionRoutes")
 
 const cors = require ('cors')
 const app = express();
@@ -32,6 +38,9 @@ app.use(express.json()); // Add this line
 app.use('/products', ProductRoutes); // Add this line
 app.use("/postes", Postes)
 app.use('/users', userRoutes)
+app.use("/games",latestGames)
+app.use("/new",latestNews)
+app.use("/trending",trending)
 
 
 
