@@ -20,11 +20,11 @@ const latestGames=require("../Routes/FeaturedGamesRoutes")
 const latestNews=require("../Routes/LatestNewsRoutes")
 const trending=require("../Routes/TrendingDiscussionRoutes")
 
-const cors = require ('cors')
+const cors = require('cors')
 const app = express();
 const server = http.createServer(app);
 const port = process.env.PORT || 4000;
-const { Server } = require('socket.io');
+const commentRoutes = require('../Routes/CommentRoutes');const { Server } = require('socket.io');
 
 
 const io = new Server(server);
@@ -38,7 +38,7 @@ app.use(express.json()); // Add this line
 app.use('/products', ProductRoutes); // Add this line
 app.use("/postes", Postes)
 app.use('/users', userRoutes)
-app.use("/games",latestGames)
+app.use('/comments', commentRoutes);app.use("/games",latestGames)
 app.use("/new",latestNews)
 app.use("/trending",trending)
 
@@ -61,7 +61,7 @@ const chatEngine = ChatEngine.create({
 
 app.post("/authenticate", async (req, res) => {
   const { username } = req.body;
-  
+
   try {
     const response = await axios.put(
       'https://api.chatengine.io/users/',
@@ -98,17 +98,17 @@ app.get('/token/:username', async (req, res) => {
 });
 
 // Instead, handle authentication after ChatEngine is ready
-chatEngine.on('$.ready', () => {
-  console.log('ChatEngine is ready');
+// chatEngine.on('$.ready', () => {
+//   console.log('ChatEngine is ready');
 
 
-io.on('connection', (socket) => {
-  console.log('A user connected');
+// io.on('connection', (socket) => {
+//   console.log('A user connected');
 
-  socket.on('disconnect', () => {
-    console.log('A user disconnected');
-  });
-});
+//   socket.on('disconnect', () => {
+//     console.log('A user disconnected');
+//   });
+// });
 
 // server.listen(3000, () => {
 //   console.log('Socket.io server is running on port 3000');
