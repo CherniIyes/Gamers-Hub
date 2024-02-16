@@ -9,6 +9,9 @@ const { ExpressPeerServer } = require('peer');
 const ProductRoutes = require('../Routes/ProductsRoutes'); // Add this line
 const Postes = require('../Routes/Postes')
 const userRoutes = require('../Routes/user');
+const latestGames=require("../Routes/LatestGamesRoutes")
+const latestNews=require("../Routes/LatestNewsRoutes")
+const trending=require("../Routes/TrendingDiscussionRoutes")
 const cors = require ('cors')
 const app = express();
 const server = http.createServer(app);
@@ -24,6 +27,9 @@ app.use(express.json()); // Add this line
 app.use('/products', ProductRoutes); // Add this line
 app.use("/postes", Postes)
 app.use('/users', userRoutes)
+app.use("/games",latestGames)
+app.use("/new",latestNews)
+app.use("/trending",trending)
 
 
 
