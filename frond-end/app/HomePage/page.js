@@ -41,9 +41,14 @@ const HomePage = () => {
     const fetchTrendingDiscussions = async () => {
       // Simulated data for trending discussions
       const data = [
-        { id: 1, title: 'Discussion 1', description: 'Description of Discussion 1' },
-        { id: 2, title: 'Discussion 2', description: 'Description of Discussion 2' },
-        { id: 3, title: 'Discussion 3', description: 'Description of Discussion 3' }
+        { id: 1, title: 'Generative AI in Gaming', description: 'In 2024, the gaming space will start seeing the impacts of Generative AI. Generative AI s ability to transform players experience, creating believable characters who can interact with players without reading from scripts or creating whole new content depending on the players behavior merely by employing real-time generative AI during gameplay.' },
+        { id: 2, title: 'Competitive Multiplayer Mobile Gaming', description: 'The previous year has witnessed the transformation of competitive multiplayer mobile games into a rage. With eSports turning into a global phenomenon and the rapid popularity of games like PUBG Mobile, Multiplayer mobile games have proved themselves a prominent gaming trend of 2023 and will continue to dominate lion’s share in 2024 and ahead.' },
+        { id: 3, title: 'Fitness Gaming', description: 'The effectiveness of fitness gaming is far-reaching, and day by day, people are leaning forward more toward fitness gaming. Fitness gaming or Active Video Games (AVG) have been around for quite some time. But, it is undergoing a recent surge in popularity and growth.'},
+        { id: 4, title: 'Blockchain-Based Gaming Trends 2024', description: 'Blockchain-enabled video games have changed the rules by transforming gaming into a sector with many exploration opportunities. Blockchains use powerful data encryption technologies to prevent hackers from modifying or destroying an online transaction.' },
+        { id: 5, title: 'Esports', description: 'A person can earn from playing video games. It was a matter of laughingstock or scorn during the 90s. And now, the world is witnessing NFT video games and Esports, aiding individual gamers and enterprises to earn and grow revenue. Esports is growing into a booming global industry where skilled video gamers play competitively.' },
+        { id: 6, title: 'Metaverse Gaming Trends', description: 'The debut of video games in the metaverse is already hype. Many game studios have already initiated carving out their first and best shot in metaverse gaming. The implementation of metaverse game development in various sectors is growing day by day.' },
+        { id: 7, title: 'AR and VR in Gaming', description: 'In terms of offering an immersive first-person video game playing experience, Augmented and Virtual Reality gaming have barely any alternative. The advent of Pokemon Go gave rise to AR gamings overnight popularity.' },
+        { id: 8, title: 'Cloud and Streaming Video Games', description: 'Gaming as a Service (Gaas) or cloud gaming is a revolution in the making that could redefine the entertainment and gaming industry. Completely eliminating the need for high-end and expensive hardware, cloud gaming will enable remote access to gaming content.' }
       ];
       setTrendingDiscussions(data);
     };
@@ -122,18 +127,19 @@ const HomePage = () => {
             ))}
           </Splide>
         </section>
-
-        <section className={`trending-discussions section ${scrolled ? 'scrolled' : ''}`}>
-          <h2>Trending Discussions</h2>
-          <div className="discussion-grid">
-            {trendingDiscussions.map(discussion => (
-              <div key={discussion.id} className="discussion-card">
-                <h3>{discussion.title}</h3>
-                <p>{discussion.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+ <section className={`trending-discussions section ${scrolled ? 'scrolled' : ''}`}>
+  <h2>Trending Discussions</h2>
+  <Splide options={{ type: 'loop', perPage: 3, focus: 'center' }}>
+    {trendingDiscussions.map(discussion => (
+      <SplideSlide key={discussion.id}>
+        <div className="discussion-card">
+          <h3>{discussion.title}</h3>
+          <p>{discussion.description}</p>
+        </div>
+      </SplideSlide>
+    ))}
+  </Splide>
+</section>
       </main>
       <footer className={`footer ${scrolled ? 'scrolled' : ''}`}>
         <p>&copy; {new Date().getFullYear()} GamersHub. All rights reserved.</p>
