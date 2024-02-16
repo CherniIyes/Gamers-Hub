@@ -60,19 +60,23 @@ const HomePage = () => {
             <p>Explore a vast collection of games, connect with other gamers, and stay up-to-date with the latest gaming news.</p>
             <Link href="/games" className="btn">Explore Games</Link>
           </div>
-        </section>
-        <section className={`featured-games section ${scrolled ? 'scrolled' : ''}`}>
-          <h2>Featured Games</h2>
-          <div className="game-grid">
-            {featuredGames.map(game => (
-              <div key={game.id} className="game-card">
-                <img src={game.imageUrl} alt={game.title} />
-                <h3>{game.title}</h3>
-                <p>{game.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+
+          </section>
+          <section className={`featured-games section ${scrolled ? 'scrolled' : ''}`}>
+  <h2>Featured Games</h2>
+  <div className="game-grid">
+    {featuredGames.map(game => (
+      <div key={game.id} className="game-card">
+        <img src={game.imageUrl} alt={game.title} />
+        <div className="card-content">
+          <h3>{game.title}</h3>
+          <p>{game.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
         <section className={`latest-news section ${scrolled ? 'scrolled' : ''}`}>
           <h2>Latest News</h2>
           <Splide options={{ type: 'loop', perPage: 3, focus: 'center' }}>
@@ -86,20 +90,24 @@ const HomePage = () => {
               </SplideSlide>
             ))}
           </Splide>
-        </section>
+
+
+          </section>
         <section className={`trending-discussions section ${scrolled ? 'scrolled' : ''}`}>
-          <h2>Trending Discussions</h2>
-          <Splide options={{ type: 'loop', perPage: 3, focus: 'center' }}>
-            {trendingDiscussions.map(discussion => (
-              <SplideSlide key={discussion.id}>
-                <div className="discussion-card">
-                  <h3>{discussion.title}</h3>
-                  <p>{discussion.description}</p>
-                </div>
-              </SplideSlide>
-            ))}
-          </Splide>
-        </section>
+  <h2>Trending Discussions</h2>
+  <div className="discussion-grid">
+    {trendingDiscussions.map(discussion => (
+      <div key={discussion.id} className="discussion-card">
+        <div className="card-content">
+          <h3>{discussion.title}</h3>
+          <p>{discussion.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+
       </main>
       <footer className={`footer ${scrolled ? 'scrolled' : ''}`}>
         <p>&copy; {new Date().getFullYear()} GamersHub. All rights reserved.</p>
