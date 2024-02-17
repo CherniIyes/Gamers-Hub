@@ -9,8 +9,8 @@ import axios from 'axios';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import {GoogleProvider } from '../firebase/config'
 import '../globals.css';
-import game1 from '../../images/game1.png';
-import logo from '../../images/logo.png'
+import Footer from '../Footer/Footer'
+
 
 
 const SignUp = () => {
@@ -93,7 +93,7 @@ const SignUp = () => {
     
     <div className="min-h-screen flex items-center justify-center bg-gray-900 background-blur container">
        <div>
-       <img src={logo} alt="Logo" />
+    
         <hr></hr>
         </div>
       <div className="signup-container">
@@ -153,7 +153,7 @@ const SignUp = () => {
         src="https://assets-global.website-files.com/646557ee455c3e16e4a9bcb3/64ed5632e0c52c100c16f293_bg-gamers.webp"
       />
     <div className='about'>
-<h1>About Us :</h1>
+<h1>Discover Our Space :</h1>
 <div className='game'>
   <img src ="https://nftplazas.com/wp-content/uploads/2023/02/ImmutableX-Sets-Up-All-Access-Immutable-Gaming-Passport.png"/>
 <p>Welcome to GameHub, the pulsating heart of the gaming community. At GameHub, we're not just a website; we're a vibrant haven where gamers from all walks of life converge, connect, and forge lasting friendships. Engage in lively discussions, share your gaming achievements, and immerse yourself in a world where camaraderie knows no bounds. Every click, every post, and every shared moment adds to the tapestry of our thriving gaming universe.</p>
@@ -163,6 +163,7 @@ const SignUp = () => {
 <img src="https://i.etsystatic.com/23665971/r/il/427b8e/3445692672/il_fullxfull.3445692672_agd6.jpg"/>
 </div>
     </div>
+    <Footer/>
     </div>
   );
 };
