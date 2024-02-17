@@ -1,88 +1,15 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-  }
+body {
+  background-color: #000;
+  margin: 0;
+  padding: 0;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+.background-blur {
+  backdrop-filter: blur(5px);
+}
 
-  body {
-    @apply bg-background text-foreground;
-  }
-} */
-
-/* @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */ */
-body{
-  background-color: #000000;
+.container {
+  position: relative;
 }
 
 .signup-container {
@@ -90,36 +17,75 @@ body{
   flex-direction: column;
   width: 320px;
   padding: 25px;
-  background-color:transparent;
+  background-color: transparent;
   border-radius: 18px;
-  box-shadow: 0 2px 4px rgba(124, 61, 219, 0.2);
-   margin-left: 3%;
-   margin-top: 0%;
+  /* box-shadow: 0 2px 4px rgba(124, 61, 219, 0.2); */
+  margin-left: 3%;
+  margin-top: 0%;
+  position: absolute;
+  z-index: 1;
+  height: 550px;
+}
+.signup-container1 {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  padding: 25px;
+  background-color: transparent;
+  border-radius: 18px;
+  /* box-shadow: 0 2px 4px rgba(124, 61, 219, 0.2); */
+  margin-left: 3%;
+  margin-top: 8%;
+  position: absolute;
+  z-index: 1;
+  height: 550px;
+}
+
+.signup-container1 input {
+ 
+    padding: 10px;
+    border-radius: 4px;
+    border: 0.1px solid #afafba;
+    margin-bottom: 20px;
+    font-size: 16px;
+    width: 100%;
+    background-color: rgb(3, 3, 81);
+    box-shadow: 0 0 2px 1px #bf00ff;
+    color: #fff;
+    width:92%
+  
+}
+
+.img {
+  width: 100%;
+  height: 600px;
+  filter: blur(0px); /* Apply blur effect to the image */
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   color: #fff;
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-size: xx-large;
+  margin-top: 1%;
 }
 
 input {
-  padding: 5px;
+  padding: 18px;
   border-radius: 4px;
   border: 0.1px solid #afafba;
   margin-bottom: 20px;
   font-size: 16px;
   width: 100%;
-  background-color:rgb(9, 9, 60);
-  box-shadow: 0 0 2px 1px #007bff;  
+  background-color: rgb(3, 3, 81);
+  box-shadow: 0 0 2px 1px #bf00ff;
   color: #fff;
+  width:90%
 }
 
 input:focus {
   outline: none;
-
 }
 
 button {
@@ -134,7 +100,7 @@ button {
 }
 
 button:hover {
-  background-color: #0069d9;
+  background-color: #459fff;
 }
 
 button:disabled {
@@ -189,27 +155,97 @@ button:disabled {
   width: 56px;
 }
 
-h4{
+h4 {
   color: #fff;
   justify-content: center;
   align-items: center;
-  margin-left: 50%;
+  margin-left: 45%;
 }
+ 
+/* Existing styles remain unchanged */
 
-/* signup.css */
-
-.background-blur {
+.about {
+  margin-top: 8%;
   position: relative;
 }
 
-.background-blur::before {
+
+.about img {
+  position: relative;
+  border-radius: 20px;
+}
+
+.about:hover::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background-image: url('https://assets-global.website-files.com/646557ee455c3e16e4a9bcb3/64ed5632e0c52c100c16f293_bg-gamers.webp');
-  background-size:cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(3px); /* Adjust the blur intensity as needed */
-  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(86, 3, 219, 0.3); /* Adjust opacity as needed */
+  border-radius: 20px;
+}
+
+/* Rest of the styles remain unchanged */
+
+.game{
+  display: flex;
+
+}
+.game img {
+  width:30%;
+  height: 240px;
+  margin-left: 3%;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+ margin-top: 2%;
+
+
+}
+.game p {
+  color:#fff;
+  font-size: 17px;
+  text-align: left;
+  line-height: 1.5em;
+  word-wrap: break-word;
+  margin: 4% 4% ;
+  font-family:monospace;
+
+}
+
+.assecoire{
+  display: flex;
+  margin-top: 8%;
+
+}
+.assecoire img {
+  width :90%;
+  height: 240px;
+  margin-right: 3%;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+margin-bottom: 1%;
+
+
+}
+.assecoire p {
+  color:#fff;
+  font-size: 17px;
+  text-align: left;
+  line-height: 1.5em;
+  word-wrap: break-word;
+  margin: 4% 4% ;
+  font-family:monospace;
+margin-top: 1%;
+}
+
+.signup-container .ll {
+  height: 50px;
+  width :  15%;
+margin-left: 40%;
+}
+.signup-container .signup-btn{
+margin-bottom: 2%;
 }

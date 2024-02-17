@@ -87,64 +87,82 @@ const SignUp = () => {
     }
   };
 
-    return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-900 background-blur">
-            <h1>Your Logo</h1>
-            <hr />
-            <div className="signup-container">
-                <h1 className="text-white text-2xl mb-5">CREATE   ACCOUNT </h1>
-                <input
-                    type="firstName"
-                    placeholder="First Name"
-                    value={firstName}
-                    onChange={(e) => setFirst(e.target.value)}
-                    className="input-field"
-                />
-                <input
-                    type="LastName"
-                    placeholder="Last Name"
-                    value={lastName}
-                    onChange={(e) => setLast(e.target.value)}
-                    className="input-field"
-                />
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="input-field"
-                />
-                <input
-                    type="Birth"
-                    placeholder="Birth"
-                    value={birth}
-                    onChange={(e) => setBirth(e.target.value)}
-                    className="input-field"
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="input-field"
-                />
-                <button
-                    onClick={handleSignUp}
-                    className="signup-btn"
-                >
-                    Sign Up
-                </button>
-                <img className='ll'  onClick={handleGoogleSignUp} src="https://miro.medium.com/v2/resize:fit:1400/1*u0bwdudgoyKjSLntsRcqiw.png" alt="" />
-                <h4>or</h4>
-                <button
-                    onClick={handleSignIn}
-                    className="signup-btn"
-                >
-                    Sign In
-                </button>
-            </div>
+  return (
+    
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 background-blur container">
+       <div>
+        <h2>your logo</h2>
+        <hr></hr>
         </div>
-    );
+      <div className="signup-container">
+       
+        <h1 className="text-white text-2xl mb-5">CREATE ACCOUNT </h1>
+        <input
+          type="firstName"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirst(e.target.value)}
+          className="input-field"
+        />
+        <input
+          type="LastName"
+          placeholder="Last Name"
+          value={lastName}
+          onChange={(e) => setLast(e.target.value)}
+          className="input-field"
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="input-field"
+        />
+        <input
+          type="Birth"
+          placeholder="Birth"
+          value={birth}
+          onChange={(e) => setBirth(e.target.value)}
+          className="input-field"
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="input-field"
+        />
+        <button onClick={handleSignUp} className="signup-btn">
+          Sign Up
+        </button>
+        <img
+          className="ll"
+          onClick={handleGoogleSignUp}
+          src="https://cdn-icons-png.flaticon.com/512/270/270014.png"
+          alt=""
+        />
+        <h4>or</h4>
+        <button onClick={handleSignIn} className="signup-btn">
+          Sign In
+        </button>
+      </div>
+      <img
+        className="img"
+        src="https://assets-global.website-files.com/646557ee455c3e16e4a9bcb3/64ed5632e0c52c100c16f293_bg-gamers.webp"
+      />
+    <div className='about'>
+<h1>About Us :</h1>
+<div className='game'>
+  <img src ="https://nftplazas.com/wp-content/uploads/2023/02/ImmutableX-Sets-Up-All-Access-Immutable-Gaming-Passport.png"/>
+<p>Welcome to GameHub, the pulsating heart of the gaming community. At GameHub, we're not just a website; we're a vibrant haven where gamers from all walks of life converge, connect, and forge lasting friendships. Engage in lively discussions, share your gaming achievements, and immerse yourself in a world where camaraderie knows no bounds. Every click, every post, and every shared moment adds to the tapestry of our thriving gaming universe.</p>
+</div>
+<div className='assecoire'>
+  <p>But GameHub is more than just a gathering place. We are also your one-stop destination for all things gaming. Dive into our meticulously curated selection of top-notch games and cutting-edge accessories. From the latest releases to must-have gear, GameHub ensures that every gamer's needs are not only met but exceeded. Join us on this extraordinary journey where the gaming community meets a marketplace designed with you in mind. GameHub – where connections are made, victories are celebrated, and the gaming future is now. Welcome to the epicenter of gaming; welcome to GameHub.</p>
+<img src="https://i.etsystatic.com/23665971/r/il/427b8e/3445692672/il_fullxfull.3445692672_agd6.jpg"/>
+</div>
+    </div>
+    </div>
+  );
 };
 
 export default SignUp;
