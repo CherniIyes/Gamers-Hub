@@ -140,7 +140,7 @@ function Product() {
       ) : (
         <>
           <input
-            className="search"
+            className="finTlawej"
             type="text"
             placeholder="Search Product name or description"
             value={searchTerm}
