@@ -10,46 +10,49 @@ const SignIn = () => {
   const [password, setPassword] = useState('');
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   const router = useRouter();
-
+  const [user, setUser] = useState(null);
   const handleSignIn = async () => {
     try {
-        // Validate email and password
-        if (!email || !password) {
-            alert("Please enter both email and password.");
-            return;
-        }
+      // Validate email and password
+      if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+      }
 
-        const loginResponse = await axios.post('http://localhost:4000/users/login', {
-            email,
-            password,
-        });
+      const loginResponse = await axios.post('http://localhost:4000/users/login', {
+        email,
+        password,
+      });
 
-        console.log('Login API response:', loginResponse);
+      console.log('Login API response:', loginResponse);
 
-        if (!loginResponse || !loginResponse.data || loginResponse.data.error) {
-            alert("Invalid email or password. Please try again.");
-            return;
-        }
+      if (!loginResponse || !loginResponse.data || loginResponse.data.error) {
+        alert("Invalid email or password. Please try again.");
+        return;
+      }
 
-        sessionStorage.setItem('user', true);
-        setEmail('');
-        setPassword('');
-        router.push('/');
-        alert("Sign in successful");
+      setUser(loginResponse.data);
+      console.log('user:', loginResponse);
+      
+      sessionStorage.setItem('user', true);
+      setEmail('');
+      setPassword('');
+      router.push('/');
+      alert("Sign in successful");
     } catch (e) {
-        console.error(e);
-        alert("Sign in failed. Please try again.");
+      console.error(e);
+      alert("Sign in failed. Please try again.");
     }
-};
-  
+  };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 background-blur container">
-    <div>
-     <h2>your logo</h2>
-     <hr></hr>
-     </div>
-   <div className="signup-container1">
+      <div>
+        <h2>your logo</h2>
+        <hr></hr>
+      </div>
+      <div className="signup-container1">
         <h1 className="text-white text-2xl mb-5">Sign In</h1>
         <input
           type="email"
