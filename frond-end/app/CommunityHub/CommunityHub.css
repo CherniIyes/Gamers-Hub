@@ -114,9 +114,9 @@ body {
       top: -15px;
       left: 37%;
       top: 10px;
-      /* Center the next container */
+
       transform: translateX(-50%);
-      /* Adjust position based on container width */
+
 }
 
 
@@ -129,7 +129,7 @@ body {
 
 
 
-/* Add these styles to your existing CSS file */
+
 
 .popup-container {
       position: fixed;
@@ -193,22 +193,6 @@ body {
       line-height: 1.6;
       color: white;
 }
-
-/* .nav {
-      background-color: #1d1f23;
-      margin: 0px;
-      padding: 10px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      color: #F3F3F3;
-      width: 1881px;
-      position: absolute;
-      top: 1px;
-}
- */
-
-
 
 
 
