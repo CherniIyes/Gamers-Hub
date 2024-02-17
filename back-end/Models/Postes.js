@@ -23,7 +23,7 @@ const getOne = (id, callback) => {
     });
 }
 const add = (newsData, callback) => {
-    const { title, description, bigdescription, user } = newsData
+    const { title, description, bigdescription, user, image } = newsData
     const query = 'INSERT INTO postes SET ?'
     connection.query(query, newsData, (err, result) => {
         if (err) {
@@ -44,9 +44,9 @@ const Delete = (id, callback) => {
     })
 }
 const update = (id, data, callback) => {
-    const { title, description } = data
-    const query = 'UPDATE  postes SET  title=?, description=?  WHERE id= ? '
-    connection.query(query, [title, description, id], (err, result) => {
+    const { title, description, bigdescription, user, image } = data
+    const query = 'UPDATE  postes SET  title=?, description=? , bigdescription=?, user=?, image=?  WHERE id= ? '
+    connection.query(query, [title, description, bigdescription, user, image, id], (err, result) => {
         if (err) {
             callback(err, null)
         } else {

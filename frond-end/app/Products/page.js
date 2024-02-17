@@ -1,8 +1,10 @@
+// Product.js
+
 'use client'
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import './Product.css'; // Importing the CSS file for styling
 
 function Product() {
   const [products, setProducts] = useState([]);
@@ -86,7 +88,7 @@ function Product() {
   });
 
   return (
-    <div className="container mt-5">
+    <div className="forSell">
       {updateMode ? (
         <div className="update-container">
           {/* Update input fields as needed */}
@@ -118,18 +120,22 @@ function Product() {
             value={updatedProduct.image}
             onChange={handleInputChange}
           />
-          <button onClick={handleSaveUpdate}>Save Update</button>
-          <button onClick={handleCancelUpdate}>Cancel</button>
+          <div className="button-container">
+            <button className="save-button" onClick={handleSaveUpdate}>Save Update</button>
+            <button className="cancel-button" onClick={handleCancelUpdate}>Cancel</button>
+          </div>
         </div>
       ) : selectedProduct ? (
         <div className="details-container">
           <h5 className="card-title">{selectedProduct.name}</h5>
-          <img className="card-text" src={selectedProduct.image} alt="Product" />
+          <img className="card-img-top" src={selectedProduct.image} alt="Product" onClick={() => handleImageClick(selectedProduct)} />
           <p className="card-text">Description: {selectedProduct.description}</p>
           <p className="card-text">Price: {selectedProduct.price}</p>
-          <button onClick={() => handleDelete(selectedProduct.id)}>Delete</button>
-          <button onClick={() => handleUpdate(selectedProduct)}>Update</button>
-          <button onClick={() => setSelectedProduct(null)}>Back to List</button>
+          <div className="button-container">
+            <button className="delete-button" onClick={() => handleDelete(selectedProduct.id)}>Delete</button>
+            <button className="update-button" onClick={() => handleUpdate(selectedProduct)}>Update</button>
+            <button className="back-button" onClick={() => setSelectedProduct(null)}>Back to List</button>
+          </div>
         </div>
       ) : (
         <>
@@ -152,9 +158,9 @@ function Product() {
                     onClick={() => handleImageClick(product)}
                   />
                   <div className="card-body">
-                    <h5 className="card-title">{product.name}</h5>
-                    <p className="card-text">Description: {product.description}</p>
-                    <p className="card-text">Price: {product.price}</p>
+                    <h5 className="heloo">{product.name}</h5>
+                    <p className="heloo">Description: {product.description}</p>
+                    <p className="heloo">Price: {product.price}</p>
                   </div>
                 </div>
               </div>

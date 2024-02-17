@@ -4,13 +4,13 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase/config';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-
+import CommunityHub from "../CommunityHub/page.jsx"
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
-  const router = useRouter();
   const [user, setUser] = useState(null);
+  const router = useRouter();
   const handleSignIn = async () => {
     try {
       // Validate email and password
@@ -31,13 +31,13 @@ const SignIn = () => {
         return;
       }
 
+      sessionStorage.setItem('user', true);
       setUser(loginResponse.data);
       console.log('user:', loginResponse);
-      
-      sessionStorage.setItem('user', true);
       setEmail('');
       setPassword('');
       router.push('/');
+      <CommunityHub userData={user} />
       alert("Sign in successful");
     } catch (e) {
       console.error(e);

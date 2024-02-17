@@ -5,6 +5,7 @@ import Link from 'next/link';
 import './Home.css'; // Adjust the import to match the file name
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+
 // import Navbar from '../Navbar/Page'; // Import the Navbar component
 const HomePage = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -53,6 +54,9 @@ const HomePage = () => {
             </Link>
             <Link href="/CommunityHub">
               <p>CommunityHub</p>
+            </Link>
+            <Link href="Products">
+              <p>Games</p>
             </Link>
           </div>
         </nav>
