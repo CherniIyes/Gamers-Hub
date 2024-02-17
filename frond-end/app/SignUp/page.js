@@ -138,7 +138,7 @@ const SignUp = () => {
         <img
           className="ll"
           onClick={handleGoogleSignUp}
-          src="https://miro.medium.com/v2/resize:fit:1400/1*u0bwdudgoyKjSLntsRcqiw.png"
+          src="https://cdn-icons-png.flaticon.com/512/270/270014.png"
           alt=""
         />
         <h4>or</h4>
