@@ -26,6 +26,7 @@ module.exports = {
             }
         });
     },
+   
 
     createProduct: function(req, res) {
         const productData = req.body;
