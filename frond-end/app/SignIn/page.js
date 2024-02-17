@@ -44,9 +44,12 @@ const SignIn = () => {
   
 
   return (
-       <div className="min-h-screen flex items-center justify-center bg-gray-900 background-blur">
-
-<div className="signup-container">
+    <div className="min-h-screen flex items-center justify-center bg-gray-900 background-blur container">
+    <div>
+     <h2>your logo</h2>
+     <hr></hr>
+     </div>
+   <div className="signup-container1">
         <h1 className="text-white text-2xl mb-5">Sign In</h1>
         <input
           type="email"
@@ -69,6 +72,10 @@ const SignIn = () => {
           Sign In
         </button>
       </div>
+      <img
+        className="img"
+        src="https://assets-global.website-files.com/646557ee455c3e16e4a9bcb3/64ed5632e0c52c100c16f293_bg-gamers.webp"
+      />
     </div>
   );
 };
