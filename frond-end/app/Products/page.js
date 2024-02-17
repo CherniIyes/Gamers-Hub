@@ -89,6 +89,16 @@ function Product() {
 
   return (
     <div className="forSell">
+      <div className="product-background">
+        <div className="background-content">
+          <h2>Welcome to our Games & Accessories Store</h2>
+          <p>Immerse yourself in the ultimate gaming experience with our extensive collection of games and accessories. Whether you're a casual gamer or a competitive player, we have everything you need to take your gaming to the next level.</p>
+          <p>Discover the latest releases, classic favorites, and exclusive accessories that will enhance your gameplay and elevate your gaming setup. From high-performance gaming keyboards and mice to immersive VR headsets and stylish gaming chairs, we've got you covered.</p>
+          <p>Experience unparalleled graphics, seamless gameplay, and immersive sound quality with our top-of-the-line gaming gear. Dominate the virtual battlefield, embark on epic adventures, and connect with fellow gamers from around the world.</p>
+          <p>Join our gaming community, stay updated on the latest gaming trends, and unleash your full gaming potential with our premium products and expert recommendations. Level up your gaming experience with us today!</p>
+          <p>Shop now and unlock a world of endless entertainment and excitement. Whether you're looking for the latest AAA titles or must-have gaming accessories, we've curated the ultimate selection to satisfy all your gaming needs. Elevate your gaming experience and join us on the journey to gaming greatness!</p>
+        </div>
+      </div>
       {updateMode ? (
         <div className="update-container">
           {/* Update input fields as needed */}

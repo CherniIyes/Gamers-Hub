@@ -38,13 +38,17 @@
   gap: 20px; /* Add gap between cards */
 }
 
+.col {
+  flex: 0 0 calc(33.33% - 20px); /* Adjust width to fit 3 cards per row */
+  max-width: calc(26.33% - 20px); /* Adjust max width to fit 3 cards per row */
+}
+
 .card {
   border: 2px solid #e9e1e1;
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s;
-  width: calc(20% - 20px); /* Adjust the width based on your design, considering gap and padding */
-  margin: 10px; /* Add margin to the cards */
+  /* Width and margin adjustments removed */
   box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
@@ -104,3 +108,36 @@
 .finTlawej {
   background-color: #25053d;
 }
+
+/* Product.css */
+
+/* Product.css */
+
+.product-background {
+  background-image: url(https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 100px 0;
+  text-align: center;
+  height: 50vh; /* Set the height to cover half of the viewport height */
+}
+
+.background-content {
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: px;
+}
+
+.product-background h2 {
+  font-size: 2.15rem;
+  margin-bottom: 25px;
+}
+
+.product-background p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+
