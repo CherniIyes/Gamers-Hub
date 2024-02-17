@@ -5,7 +5,6 @@ import Link from 'next/link';
 import './Home.css'; // Adjust the import to match the file name
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
-import Navbar from '../Navbar/Page'; // Import the Navbar component
 
 const HomePage = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -46,7 +45,14 @@ const HomePage = () => {
 
   return (
     <div className='mainne'>
-      <Navbar /> {/* Include the Navbar component */}
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <ul>
+          <li><Link href="/games">Games</Link></li>
+          <li><Link href="/community">Community</Link></li>
+          <li><Link href="/chatRoom">Chat Room</Link></li>
+          <li><Link href="/contactUs">Contact Us</Link></li>
+        </ul>
+      </nav>
       <main>
         <section className={`hero ${scrolled ? 'scrolled' : ''}`}>
           <div className="hero-content">
