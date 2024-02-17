@@ -36,6 +36,7 @@
   flex-wrap: wrap;
   justify-content: space-between; /* Ensure space between cards */
   gap: 20px; /* Add gap between cards */
+  background-color: rgb(43, 17, 67);
 }
 
 .col {

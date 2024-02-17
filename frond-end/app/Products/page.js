@@ -1,7 +1,3 @@
-// Product.js
-
-'use client'
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Product.css'; // Importing the CSS file for styling
@@ -18,6 +14,7 @@ function Product() {
     image: '',
   });
   const [searchTerm, setSearchTerm] = useState('');
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     axios
@@ -80,6 +77,10 @@ function Product() {
     setUpdatedProduct({ ...updatedProduct, [e.target.name]: e.target.value });
   };
 
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+  };
+
   const filteredProducts = products.filter((product) => {
     return (
       (product.name && product.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
@@ -89,6 +90,15 @@ function Product() {
 
   return (
     <div className="forSell">
+      {/* Navbar */}
+      <nav className="navbar">
+        <div className="logo">Your Logo</div>
+        <div className="nav-links">
+          <button className="cart-button" onClick={() => alert('View Cart')}>Cart ({cart.length})</button>
+        </div>
+      </nav>
+
+      {/* Product Background */}
       <div className="product-background">
         <div className="background-content">
           <h2>Welcome to our Games & Accessories Store</h2>
@@ -97,87 +107,93 @@ function Product() {
           <p>Experience unparalleled graphics, seamless gameplay, and immersive sound quality with our top-of-the-line gaming gear. Dominate the virtual battlefield, embark on epic adventures, and connect with fellow gamers from around the world.</p>
           <p>Join our gaming community, stay updated on the latest gaming trends, and unleash your full gaming potential with our premium products and expert recommendations. Level up your gaming experience with us today!</p>
           <p>Shop now and unlock a world of endless entertainment and excitement. Whether you're looking for the latest AAA titles or must-have gaming accessories, we've curated the ultimate selection to satisfy all your gaming needs. Elevate your gaming experience and join us on the journey to gaming greatness!</p>
+          <p>Shop now and unlock a world of endless entertainment and excitement. Whether you're looking for the latest AAA titles or must-have gaming accessories, we've curated the ultimate selection to satisfy all your gaming needs. Elevate your gaming experience and join us on the journey to gaming greatness!</p>
         </div>
       </div>
-      {updateMode ? (
-        <div className="update-container">
-          {/* Update input fields as needed */}
-          <input
-            type="text"
-            placeholder="Name"
-            name="name"
-            value={updatedProduct.name}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            placeholder="Description"
-            name="description"
-            value={updatedProduct.description}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            placeholder="Price"
-            name="price"
-            value={updatedProduct.price}
-            onChange={handleInputChange}
-          />
-          <input
-            type="text"
-            placeholder="Image URL"
-            name="image"
-            value={updatedProduct.image}
-            onChange={handleInputChange}
-          />
-          <div className="button-container">
-            <button className="save-button" onClick={handleSaveUpdate}>Save Update</button>
-            <button className="cancel-button" onClick={handleCancelUpdate}>Cancel</button>
-          </div>
-        </div>
-      ) : selectedProduct ? (
-        <div className="details-container">
-          <h5 className="card-title">{selectedProduct.name}</h5>
-          <img className="card-img-top" src={selectedProduct.image} alt="Product" onClick={() => handleImageClick(selectedProduct)} />
-          <p className="card-text">Description: {selectedProduct.description}</p>
-          <p className="card-text">Price: {selectedProduct.price}</p>
-          <div className="button-container">
-            <button className="delete-button" onClick={() => handleDelete(selectedProduct.id)}>Delete</button>
-            <button className="update-button" onClick={() => handleUpdate(selectedProduct)}>Update</button>
-            <button className="back-button" onClick={() => setSelectedProduct(null)}>Back to List</button>
-          </div>
-        </div>
-      ) : (
-        <>
-          <input
-            className="finTlawej"
-            type="text"
-            placeholder="Search Product name or description"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
 
-          <div className="row row-cols-1 row-cols-md-2 g-4">
-            {filteredProducts.map((product) => (
-              <div key={product.id} className="col mb-4">
-                <div className="card h-100 lose-card">
-                  <img
-                    src={product.image}
-                    className="card-img-top"
-                    alt="Product Image"
-                    onClick={() => handleImageClick(product)}
-                  />
-                  <div className="card-body">
-                    <h5 className="heloo">{product.name}</h5>
-                    <p className="heloo">Description: {product.description}</p>
-                    <p className="heloo">Price: {product.price}</p>
+      {/* Product List */}
+      <div className="product-list">
+        {updateMode ? (
+          <div className="update-container">
+            {/* Update input fields as needed */}
+            <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              value={updatedProduct.name}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              placeholder="Description"
+              name="description"
+              value={updatedProduct.description}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              placeholder="Price"
+              name="price"
+              value={updatedProduct.price}
+              onChange={handleInputChange}
+            />
+            <input
+              type="text"
+              placeholder="Image URL"
+              name="image"
+              value={updatedProduct.image}
+              onChange={handleInputChange}
+            />
+            <div className="button-container">
+              <button className="save-button" onClick={handleSaveUpdate}>Save Update</button>
+              <button className="cancel-button" onClick={handleCancelUpdate}>Cancel</button>
+            </div>
+          </div>
+        ) : selectedProduct ? (
+          <div className="details-container">
+            <h5 className="card-title">{selectedProduct.name}</h5>
+            <img className="card-img-top" src={selectedProduct.image} alt="Product" onClick={() => handleImageClick(selectedProduct)} />
+            <p className="card-text">Description: {selectedProduct.description}</p>
+            <p className="card-text">Price: {selectedProduct.price}</p>
+            <div className="button-container">
+              <button className="delete-button" onClick={() => handleDelete(selectedProduct.id)}>Delete</button>
+              <button className="update-button" onClick={() => handleUpdate(selectedProduct)}>Update</button>
+              <button className="back-button" onClick={() => setSelectedProduct(null)}>Back to List</button>
+            </div>
+          </div>
+        ) : (
+          <>
+            <input
+              className="finTlawej"
+              type="text"
+              placeholder="Search Product name or description"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+
+            <div className="row row-cols-1 row-cols-md-2 g-4">
+              {filteredProducts.map((product) => (
+                <div key={product.id} className="col mb-4">
+                  <div className="card h-100 lose-card">
+                    <img
+                      src={product.image}
+                      className="card-img-top"
+                      alt="Product Image"
+                      onClick={() => handleImageClick(product)}
+                    />
+                    <div className="card-body">
+                      <h5 className="heloo">{product.name}</h5>
+                      <p className="heloo">Description: {product.description}</p>
+                      <p className="heloo">Price: {product.price}</p>
+                      <button className="add-to-cart-button" onClick={() => addToCart(product)}>Add to Cart</button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </>
-      )}
+              ))}
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }
