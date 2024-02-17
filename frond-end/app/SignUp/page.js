@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase/config';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 import axios from 'axios';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import {GoogleProvider } from '../firebase/config'
@@ -74,7 +73,7 @@ const SignUp = () => {
           alert("Sign up successful");
       } catch (e) {
           console.error(e);
-          alert("Sign up failed. Please try again.");
+          // alert("Sign up failed. Please try again.");
       }
   };
   
