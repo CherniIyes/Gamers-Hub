@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { AiOutlineSearch } from "react-icons/ai";
 import './CommunityHub.css';
+// import Navbar from "../Navbar/Page.jsx";
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 const Community = () => {
       const [postes, setPostes] = useState([]);
@@ -22,10 +22,6 @@ const Community = () => {
       const [newComment, setNewComment] = useState({
             text: '',
       });
-      const router = useRouter();
-
-
-
 
 
       useEffect(() => {
@@ -144,16 +140,20 @@ const Community = () => {
 
       return (
             <div className='all'>
-                  {/* <button onClick={() => { console.log("welcome") && router.push('/') }}>Welcome to GamersHub</button> */}
+                  <nav className="navbar">
+                        <div className="logo">Your Logo</div>
+                        <div className="nav-links">
+                              <Link href="/HomePage">
+                                    <p className="home-link">Home</p>
+                              </Link>
+                              <Link href="/CommunityHub">
+                                    <p>CommunityHub</p>
+                              </Link>
+                        </div>
+                  </nav>
 
-                  {/* <div className="nav">
-                        <span className="items" >
-                              🛒
-                        </span>
-                        <span className="items">
-                              🔻
-                        </span>
-                  </div> */}
+
+
                   <div className='top-shelf'>
                         <div className='search'>
                               <div className="postes">
@@ -263,6 +263,6 @@ const Community = () => {
                   )}
             </div>
       );
-};
+}
 
-export default Community;
+export default Community
