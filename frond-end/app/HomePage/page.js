@@ -54,6 +54,9 @@ const HomePage = () => {
             <Link href="/CommunityHub">
               <p>CommunityHub</p>
             </Link>
+            <Link href="Products">
+              <p>Games</p>
+            </Link>
           </div>
         </nav>
         <main>
