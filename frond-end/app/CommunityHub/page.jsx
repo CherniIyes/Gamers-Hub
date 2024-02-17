@@ -7,6 +7,8 @@ import './CommunityHub.css';
 import Link from 'next/link';
 
 const Community = () => {
+
+
       const [postes, setPostes] = useState([]);
       const [searchTerm, setSearchTerm] = useState('');
       const [selectedPost, setSelectedPost] = useState(null)
