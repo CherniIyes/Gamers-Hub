@@ -1,35 +1,27 @@
-// server.js
-// const cors = require('cors');
 const express = require('express');
 const http = require('http');
-const ChatEngine = require('chat-engine');
-const admin = require('firebase-admin');
-const { ExpressPeerServer } = require('peer');
+const cors = require('cors');
+const { Server } = require('socket.io'); // Import Server from socket.io
 
-const socketIO = require('socket.io');
-// const bodyParser = require('body-parser'); // Add this line
-// const ProductRoutes = require('../Routes/ProductsRoutes'); // Add this line
-// const Postes = require('../Routes/Postes')
-// const userRoutes = require('../Routes/user');
-// const bodyParser = require('body-parser'); // Add this line
-
-const ProductRoutes = require('../Routes/ProductsRoutes'); // Add this line
-const Postes = require('../Routes/Postes')
-const userRoutes = require('../Routes/user');
-const latestGames=require("../Routes/FeaturedGamesRoutes")
-const latestNews=require("../Routes/LatestNewsRoutes")
-const trending=require("../Routes/TrendingDiscussionRoutes")
-
-const cors = require('cors')
 const app = express();
 const server = http.createServer(app);
+const io = new Server(server); // Create a new instance of Server
+
 const port = process.env.PORT || 4000;
-const commentRoutes = require('../Routes/CommentRoutes');const { Server } = require('socket.io');
 
+app.use(cors());
 
-const io = new Server(server);
-const peerServer = ExpressPeerServer(server, {
-  debug: true
+io.on('connection', (socket) => {
+  console.log('a user connected');
+
+  socket.on('message', (data) => {
+    console.log(data); // Log the received message data
+    io.emit('message', data); // Broadcast the received message data to all clients
+  });
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
 });
 // app.use(cors());app.use(cors())
 app.use('/peerjs', peerServer);
@@ -110,66 +102,6 @@ app.get('/token/:username', async (req, res) => {
 //   });
 // });
 
-// server.listen(3000, () => {
-//   console.log('Socket.io server is running on port 3000');
-// });
-
-// const serviceAccount = require('../');
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount)
-// });
-
-// const db = admin.firestore();
-
-// const chatEngine = ChatEngine.create({
-//   publishKey: '',
-//   subscribeKey: ''
-// });
-
-// // Remove the incorrect call to connect() method
-
-// app.get('/token/:username', async (req, res) => {
-//   const { username } = req.params;
-
-//   const tokenSnapshot = await db.collection('tokens').doc(username).get();
-//   const tokenData = tokenSnapshot.data();
-
-//   if (!tokenData) {
-//     return res.status(404).send('User not found');
-//   }
-
-//   res.send({ token: tokenData.token });
-// });
-
-// // Instead, handle authentication after ChatEngine is ready
-// chatEngine.on('$.ready', () => {
-//   console.log('ChatEngine is ready');
-
-//   // Connect user after ChatEngine is ready
-//   const me = chatEngine.connect('username', {
-//     signedOnTime: Date.now(),
-//     authKey: 'auth-key'
-//   });
-
-//   me.on('$.online', () => {
-//     console.log('You are online');
-//   });
-
-//   me.on('$.offline', () => {
-//     console.log('You are offline');
-//   });
-
-//   chatEngine.global.on('voice-chat-offer', (payload) => {
-//     // Broadcast voice chat offer
-//     chatEngine.global.emit('voice-chat-offer', payload);
-//   });
-
-//   chatEngine.global.on('voice-chat-answer', (payload) => {
-//     // Broadcast voice chat answer
-//     chatEngine.global.emit('voice-chat-answer', payload);
-//   });
-// });
-
 server.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Server is running on port ${port}`);
 });
