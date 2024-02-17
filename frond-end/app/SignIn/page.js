@@ -9,6 +9,7 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+  const [user, setUser] = useState(null);
   const router = useRouter();
 
   const handleSignIn = async () => {
@@ -32,6 +33,8 @@ const SignIn = () => {
         }
 
         sessionStorage.setItem('user', true);
+        setUser(loginResponse.data);
+      console.log('user:', loginResponse);
         setEmail('');
         setPassword('');
         router.push('/');
