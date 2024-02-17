@@ -45,6 +45,7 @@ const HomePage = () => {
   };
 
   return (
+    
     <div className='mainne'>
         <nav className="navbar">
           <div className="logo">Your Logo</div>
