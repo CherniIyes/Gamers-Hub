@@ -20,10 +20,9 @@ function Product() {
     image: '',
   });
   const [searchTerm, setSearchTerm] = useState('');
-  const addToCart = (product) => {
-    setCart([...cart, product]); // Adding the selected product to the cart
-  };
-  
+  const [cart, setCart] = useState([]);
+
+
 
   useEffect(() => {
     axios
@@ -169,24 +168,26 @@ function Product() {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
 
-<div className="row row-cols-1 row-cols-md-2 g-4">
-  {filteredProducts.map((product) => (
-    <div key={product.id} className="col mb-4">
-      <div className="card h-100 lose-card">
-        <img
-          src={product.image}
-          className="card-img-top"
-          alt="Product Image"
-          onClick={() => handleImageClick(product)}
-        />
-        <div className="card-body">
-          <h5 className="heloo">{product.name}</h5>
-          <button className="add-to-cart-button" onClick={() => addToCart(product)}>Add to Cart</button>
-        </div>
-      </div>
-    </div>
-  ))}
-</div>
+          <div className="row row-cols-1 row-cols-md-2 g-4">
+            {filteredProducts.map((product) => (
+              <div key={product.id} className="col mb-4">
+                <div className="card h-100 lose-card">
+                  <img
+                    src={product.image}
+                    className="card-img-top"
+                    alt="Product Image"
+                    onClick={() => handleImageClick(product)}
+                  />
+                  <div className="card-body">
+                    <h5 className="heloo">{product.name}</h5>
+                    <p className="heloo">Description: {product.description}</p>
+                    <p className="heloo">Price: {product.price}</p>
+                    <button className="mine hover" onClick={() => addToCart(product)}>Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </>
       )}
     </div>
