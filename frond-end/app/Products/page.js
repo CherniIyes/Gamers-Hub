@@ -88,7 +88,7 @@ function Product() {
   });
 
   return (
-    <div className="container mt-5">
+    <div className="forSell">
       {updateMode ? (
         <div className="update-container">
           {/* Update input fields as needed */}
@@ -158,9 +158,9 @@ function Product() {
                     onClick={() => handleImageClick(product)}
                   />
                   <div className="card-body">
-                    <h5 className="card-title">{product.name}</h5>
-                    <p className="card-text">Description: {product.description}</p>
-                    <p className="card-text">Price: {product.price}</p>
+                    <h5 className="heloo">{product.name}</h5>
+                    <p className="heloo">Description: {product.description}</p>
+                    <p className="heloo">Price: {product.price}</p>
                   </div>
                 </div>
               </div>

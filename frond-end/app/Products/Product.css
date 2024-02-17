@@ -1,9 +1,17 @@
 /* Cart.css */
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+.forSell {
+  width: 100%;
+  min-height: 100vh; /* Set minimum height to full viewport height */
+  background-image: url("https://img.freepik.com/free-photo/cool-geometric-triangular-figure-neon-laser-light-great-backgrounds_181624-11068.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center; /* Horizontally center content */
+  align-items: center; /* Vertically center content */
+}
+
   
   .mt-5 {
     margin-top: 5rem;
@@ -37,7 +45,7 @@
   
   .cart-card {
     padding: 1rem;
-    background-color: #fff; /* Change background color to white */
+    background-color: #542929; /* Change background color to white */
     color: #e6dfdf; /* Change text color to black */
     border-radius: 10px;
     width: 150px; /* Set width to 150px */
@@ -69,6 +77,12 @@
   .cart-title,
   .cart-price {
     color: white; /* Set text color to white */
+  };
+  .card-body{
+    color: #fff;
   }
-  
+
+  .heloo{
+    color: white;
+  }
   
