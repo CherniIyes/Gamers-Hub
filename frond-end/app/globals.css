@@ -60,6 +60,8 @@ body {
   width: 100%;
   height: 600px;
   filter: blur(3px); /* Apply blur effect to the image */
+
+
 }
 
 h1 {

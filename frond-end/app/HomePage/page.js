@@ -5,6 +5,8 @@ import Link from 'next/link';
 import './Home.css'; // Adjust the import to match the file name
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+import Chat from '../chatt/page'
+
 
 // import Navbar from '../Navbar/Page'; // Import the Navbar component
 const HomePage = () => {
@@ -13,7 +15,7 @@ const HomePage = () => {
   const [latestNews, setLatestNews] = useState([]);
   const [trendingDiscussions, setTrendingDiscussions] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  const [isChatVisible, setIsChatVisible] = useState(false)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -59,9 +61,19 @@ const HomePage = () => {
             <Link href="Products">
               <p>Games</p>
             </Link>
+            <Link href="#">
+          <p onClick={() => setIsChatVisible(true)}>Chat</p>
+        </Link>
+
           </div>
         </nav>
         <main>
+       {/* Conditionally render the Chat component */}
+       {isChatVisible && <Chat />}
+
+{/* Render the content of the HomePage */}
+{!isChatVisible && (
+  <>
           <section className={`hero ${scrolled ? 'scrolled' : ''}`}>
             <div className="hero-content">
               <h2>Discover Your Next Adventure</h2>
@@ -108,7 +120,11 @@ const HomePage = () => {
               ))}
             </Splide>
           </section>
-        </main>
+
+          </>
+      )}
+    </main>
+          
         <footer className={`footer ${scrolled ? 'scrolled' : ''}`}>
           <p>&copy; {new Date().getFullYear()} GamersHub. All rights reserved.</p>
         </footer>
