@@ -46,7 +46,7 @@ const HomePage = () => {
 
   return (
     <div className='mainne'>
-      <Navbar /> {/* Include the Navbar component */}
+      {/* <Navbar /> Include the Navbar component */}
       <main>
         <section className={`hero ${scrolled ? 'scrolled' : ''}`}>
           <div className="hero-content">

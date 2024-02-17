@@ -10,6 +10,8 @@ import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import {GoogleProvider } from '../firebase/config'
 import '../globals.css';
 import game1 from '../../images/game1.png';
+import logo from '../../images/logo.png'
+
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
@@ -91,7 +93,7 @@ const SignUp = () => {
     
     <div className="min-h-screen flex items-center justify-center bg-gray-900 background-blur container">
        <div>
-        <h2>your logo</h2>
+       <img src={logo} alt="Logo" />
         <hr></hr>
         </div>
       <div className="signup-container">
