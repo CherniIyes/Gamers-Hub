@@ -164,9 +164,11 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Semi-transparent black */
   padding: 10px 0;
-  z-index: 1000; /* Ensure it's above other content */
+  z-index: 1000;
+  /* Ensure it's above other content */
 }
 
 .navbar ul {
@@ -174,29 +176,70 @@
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center; /* Center the nav links */
+  justify-content: center;
+  /* Center the nav links */
 }
 
 .navbar ul li {
-  margin: 0 15px; /* Adjust spacing between nav items */
+  margin: 0 15px;
+  /* Adjust spacing between nav items */
 }
 
 .navbar ul li a {
   color: #fff;
   text-decoration: none;
   font-size: 1.2rem;
-  padding: 8px 15px; /* Add padding to make clickable area larger */
-  border-radius: 5px; /* Add rounded corners to nav items */
-  transition: background-color 0.3s ease; /* Smooth transition on hover */
+  padding: 8px 15px;
+  /* Add padding to make clickable area larger */
+  border-radius: 5px;
+  /* Add rounded corners to nav items */
+  transition: background-color 0.3s ease;
+  /* Smooth transition on hover */
 }
 
 .navbar ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white on hover */
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Semi-transparent white on hover */
 }
 
 /* Navbar scrolled state */
 .navbar.scrolled {
-  background-color: #333; /* Change background color when scrolled */
+  background-color: #333;
+  /* Change background color when scrolled */
 }
 
 /* Adjust other sections as needed */
+
+
+
+.navbar {
+  background-color: #171a21;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #58a6ff;
+  /* Change the color on hover */
+}
