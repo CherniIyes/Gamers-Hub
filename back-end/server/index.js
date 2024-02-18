@@ -1,10 +1,10 @@
 const express = require('express');
 const http = require('http');
 const cors = require('cors');
-const { Server } = require('socket.io'); // Import Server from socket.io
+const { Server } = require('socket.io');
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server); // Create a new instance of Server
+const io = new Server(server);
 const port = process.env.PORT || 4000;
 const { ExpressPeerServer } = require('peer');
 const admin = require('firebase-admin');
@@ -12,7 +12,7 @@ const ChatEngine = require('chat-engine');
 
 
 
-const ProductRoutes = require('../Routes/ProductsRoutes'); // Add this line
+const ProductRoutes = require('../Routes/ProductsRoutes');
 const Postes = require('../Routes/Postes')
 const userRoutes = require('../Routes/user');
 const commentRoutes = require('../Routes/CommentRoutes')
@@ -24,8 +24,8 @@ io.on('connection', (socket) => {
   console.log('a user connected');
 
   socket.on('message', (data) => {
-    console.log(data); // Log the received message data
-    io.emit('message', data); // Broadcast the received message data to all clients
+    console.log(data);
+    io.emit('message', data);
   });
 
   socket.on('disconnect', () => {
