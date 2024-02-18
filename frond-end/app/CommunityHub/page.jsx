@@ -19,12 +19,12 @@ const Community = () => {
             description: '',
             bigdescription: '',
             user: '',
+            image: "",
       });
       const [comments, setComments] = useState([]);
       const [newComment, setNewComment] = useState({
             text: '',
       });
-
 
       useEffect(() => {
             getAllPostes();
@@ -99,7 +99,7 @@ const Community = () => {
                   title: '',
                   description: '',
                   bigdescription: '',
-                  user: '', // Reset other fields if needed
+                  image: '', // Reset other fields if needed
             });
       };
 
@@ -140,6 +140,14 @@ const Community = () => {
       };
 
 
+      const handleImageChange = (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                  // You can perform additional checks or processing here if needed
+                  setNewHubData({ ...newHubData, image: file });
+            }
+      };
+
       return (
             <div className='all'>
                   <nav className="navbar">
@@ -151,6 +159,12 @@ const Community = () => {
                               <Link href="/CommunityHub">
                                     <p>CommunityHub</p>
                               </Link>
+                              <Link href="/Products">
+                                    <p>Games</p>
+                              </Link>
+                              <Link href="/chatt">
+                                    <p onClick={() => setIsChatVisible(true)}>Chat</p>
+                              </Link>
                         </div>
                   </nav>
 
@@ -160,7 +174,7 @@ const Community = () => {
                         <div className='search'>
                               <div className="postes">
 
-                                    <div className="FIND-HUBS">FIND HUBS</div>
+                                    <div className="FIND-HUBS">Find Hubs :</div>
                                     <input
                                           className='searchh-inputt'
                                           type="text"
@@ -173,8 +187,8 @@ const Community = () => {
                         </div>
 
                         <div className='next'>
-                              <div className='some'>cant find it ? be the first to add it</div>
-                              <button onClick={handleCreateHubClick}>Create A Hub</button>
+                              <div className='some'>Cant find it ? Be the first to add it :</div>
+                              <button className='ziiiiiiz' onClick={handleCreateHubClick}>Create A Hub</button>
                         </div>
 
                   </div>
@@ -188,6 +202,8 @@ const Community = () => {
                                     </div>
                                     <div className="community-description">
                                           {post.description}
+                                    </div><div className="community-dimage">
+                                          {<img src={post.image} alt="Community" />}
                                     </div>
                               </div>
                         ))}
@@ -201,13 +217,17 @@ const Community = () => {
                                     <div className="popup-content">
                                           <h3>{selectedPost.title}</h3>
                                           <p>{selectedPost.description}</p>
+                                          <img className='soura' src={selectedPost.image} alt="" />
                                           <p>{selectedPost.bigdescription}</p>
 
                                           {/* Display comments */}
+                                          <h4 className='added-comments-section'>Comments :</h4>
+                                          <hr className='top-com' />
                                           <div className="comments-section">
-                                                <h4>Comments</h4>
+
+
                                                 {comments.map((comment) => (
-                                                      <div key={comment.id} className="comment">
+                                                      <div key={comment.id} className="added-comments">
                                                             <strong>{comment.user}</strong>: {comment.text}
                                                       </div>
                                                 ))}
@@ -215,12 +235,13 @@ const Community = () => {
 
                                           {/* Form for users to submit new comments */}
                                           <div className="add-comment-form">
-                                                <h4>Add a Comment</h4>
+                                                <hr className='top-add-com' />
+                                                <h4 className='Add-a-Comment'>Add a Comment :</h4>
                                                 <form onSubmit={handleCommentSubmit}>
                                                       <div className="form-group">
-                                                            <label htmlFor="commentText">Comment:</label>
-                                                            <textarea
-                                                                  id="commentText"
+
+
+                                                            <textarea className='comment-input'
                                                                   name="commentText"
                                                                   rows="4"
                                                                   cols="50"
@@ -229,7 +250,7 @@ const Community = () => {
                                                                   required
                                                             ></textarea>
                                                       </div>
-                                                      <button type="submit">Submit Comment</button>
+                                                      <button className='filsa-2' type="submit-Comment">Submit Comment</button>
                                                 </form>
                                           </div>
                                     </div>
@@ -249,15 +270,40 @@ const Community = () => {
                                                 <span onClick={handleCloseCreateHubPopup}>&times;</span>
                                           </div>
                                           <div className="popup-contentp">
-                                                <h3>Create a New Hub</h3>
+                                                <h3>What's on your mind ?</h3>
                                                 <input
+                                                      className='very-thicc-input'
                                                       type="text"
-                                                      placeholder="Title"
+                                                      placeholder="What do you wanna talk about?"
                                                       value={newHubData.title}
                                                       onChange={(e) => setNewHubData({ ...newHubData, title: e.target.value })}
                                                 />
-                                                {/* Add other input fields for description, bigdescription, user, etc. */}
-                                                <button onClick={handleCreateHubSubmit}>Create Hub</button>
+                                                <input
+                                                      type="text"
+                                                      className='very-thicc-input'
+                                                      placeholder="Tell us about it,,"
+                                                      value={newHubData.description}
+                                                      onChange={(e) => setNewHubData({ ...newHubData, description: e.target.value })}
+                                                />
+                                                <input
+                                                      className='very-thicc-input'
+                                                      type="text"
+                                                      placeholder="Oh pls some more!"
+                                                      value={newHubData.bigdescription}
+                                                      onChange={(e) => setNewHubData({ ...newHubData, bigdescription: e.target.value })}
+                                                />
+                                                <label className='upload-button'>
+                                                      <input
+                                                            type="file"
+                                                            accept="image/*"
+                                                            onChange={(e) => handleImageChange(e)}
+                                                            style={{ display: 'none' }}  // hide the default file input
+                                                      />
+                                                      <div className='custom-upload-button'>
+                                                            Add a pic
+                                                      </div>
+                                                </label>
+                                                <button className='filsa' onClick={handleCreateHubSubmit}>Create Hub</button>
                                           </div>
                                     </div>
                               </div>
@@ -268,3 +314,5 @@ const Community = () => {
 }
 
 export default Community
+
+
