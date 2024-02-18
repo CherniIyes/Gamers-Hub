@@ -16,8 +16,10 @@ body {
       max-width: 100%;
       margin: 0 auto;
       position: relative;
-      top: 201px;
-      background-color: #171a21;
+      top: 124px;
+      background-color: rgba(3, 35, 219, 0.3);
+      width: 1761px;
+      height: 792px;
 }
 
 .community-card {
@@ -28,6 +30,7 @@ body {
       background-color: #171a21;
       color: #ffffff;
       position: relative;
+      top: 55px;
 }
 
 .community-dimage {
@@ -291,7 +294,8 @@ body {
       top: 49px;
       left: 55px;
       width: 1761px;
-      background-color: #171a21;
+      /* background-color: #171a21; */
+      background-color: rgba(3, 35, 219, 0.3);
 }
 
 
@@ -422,7 +426,7 @@ body {
 
 
 .ziiiiiiz {
-      background-color: #2a475e;
+      background-color: #ff0000;
       color: #fff;
       padding: 10px 17px;
       cursor: pointer;
