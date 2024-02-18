@@ -1,6 +1,12 @@
 const express = require('express');
 const http = require('http');
 const cors = require('cors');
+const { PeerServer } = require('peer');
+const admin = require('firebase-admin');
+const ChatEngine = require('chat-engine');
+
+
+
 const { Server } = require('socket.io');
 const app = express();
 const server = http.createServer(app);
@@ -8,7 +14,6 @@ const io = new Server(server);
 const port = process.env.PORT || 4000;
 const { ExpressPeerServer } = require('peer');
 const admin = require('firebase-admin');
-const ChatEngine = require('chat-engine');
 
 
 
@@ -40,6 +45,8 @@ const peerServer = ExpressPeerServer(server, {
 
 
 app.use(cors())
+// app.use('/peerjs', peerServer);
+=======
 app.use(express.json());
 app.use('/peerjs', peerServer);
 app.use('/products', ProductRoutes);
@@ -49,9 +56,6 @@ app.use('/comments', commentRoutes)
 app.use("/games", latestGames)
 app.use("/new", latestNews)
 app.use("/trending", trending)
-
-
-
 
 
 
