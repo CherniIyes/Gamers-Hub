@@ -582,9 +582,9 @@ body {
       justify-content: center;
 }
 
-.added-comments {}
+/* .added-comments {}
 
-.add-comment-form {}
+.add-comment-form {} */
 
 .Add-a-Comment {
       position: relative;
@@ -592,9 +592,9 @@ body {
       top: 8px;
 }
 
-.commentText {}
+/* .commentText {}
 
-.submit-Comment {}
+.submit-Comment {} */
 
 .comment-input {
       height: 24px;
@@ -609,7 +609,7 @@ body {
       top: 19px;
 }
 
-.top-com {}
+/* .top-com {} */
 
 .filsa-2 {
       background-color: #2a475e;
@@ -621,4 +621,10 @@ body {
       position: relative;
       left: 440px;
       top: -41px;
+}
+
+
+.foo {
+      position: relative;
+      top: 155px;
 }

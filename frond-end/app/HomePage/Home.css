@@ -80,14 +80,14 @@
   background-color: #ffc107;
 }
 
-/* Featured games section styles */
 .featured-games {
   background-color: #222;
   color: #fff;
   padding: 50px 0;
   text-align: center;
+  position: relative;
+  top: 28px;
 }
-
 .featured-games h2 {
   font-size: 2rem;
   margin-bottom: 20px;
@@ -105,12 +105,13 @@
   height: 70%
 }
 
-/* Latest news section styles */
 .latest-news {
   background-color: #444;
   color: #fff;
   padding: 50px 0;
   text-align: center;
+  position: relative;
+  top: 65px;
 }
 
 .latest-news h2 {
@@ -148,6 +149,8 @@
   color: #fff;
   padding: 50px 0;
   text-align: center;
+  position: relative;
+  top: 147px;
 }
 
 .trending-discussions h2 {
@@ -285,4 +288,9 @@
 .nav-links a:hover {
   color: #58a6ff;
   /* Change the color on hover */
+}
+
+.fooo {
+  position: relative;
+  top: 240px;
 }

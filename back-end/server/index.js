@@ -13,7 +13,7 @@ const server = http.createServer(app);
 const io = new Server(server);
 const port = process.env.PORT || 4000;
 const { ExpressPeerServer } = require('peer');
-const admin = require('firebase-admin');
+// const admin = require('firebase-admin');
 
 
 
@@ -46,7 +46,7 @@ const peerServer = ExpressPeerServer(server, {
 
 app.use(cors())
 // app.use('/peerjs', peerServer);
-=======
+// =======
 app.use(express.json());
 app.use('/peerjs', peerServer);
 app.use('/products', ProductRoutes);
