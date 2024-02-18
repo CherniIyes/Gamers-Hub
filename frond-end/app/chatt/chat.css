@@ -1,0 +1,36 @@
+.navbar {
+      background-color: #171a21;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+
+.logo {
+      font-size: 1.5em;
+      font-weight: bold;
+}
+
+.nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+}
+
+.nav-links a {
+      text-decoration: none;
+      color: white;
+      font-size: 1.2em;
+      transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+      color: #58a6ff;
+      /* Change the color on hover */
+}
+
+.chat {
+      position: relative;
+      bottom: 400px;
+}

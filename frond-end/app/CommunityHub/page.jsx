@@ -5,6 +5,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import './CommunityHub.css';
 // import Navbar from "../Navbar/Page.jsx";
 import Link from 'next/link';
+import Footer from '../Footer/Footer'
 
 const Community = () => {
 
@@ -163,7 +164,7 @@ const Community = () => {
                                     <p>Games</p>
                               </Link>
                               <Link href="/chatt">
-                                    <p onClick={() => setIsChatVisible(true)}>Chat</p>
+                                    <p>Chat</p>
                               </Link>
                         </div>
                   </nav>
@@ -309,7 +310,10 @@ const Community = () => {
                               </div>
                         </>
                   )}
-            </div>
+                  <div className='foo'>
+                        <Footer />
+                  </div>
+            </div >
       );
 }
 
