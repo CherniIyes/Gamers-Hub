@@ -2,6 +2,19 @@ const express = require('express');
 const http = require('http');
 const cors = require('cors');
 const { Server } = require('socket.io'); // Import Server from socket.io
+const { PeerServer } = require('peer');
+const peerServer = PeerServer({ port: 9000, path: '/peerjs' }); // Adjust port number as needed
+const ProductsRoutes=require("../Routes/ProductsRoutes")
+const Postes=require("../Routes/Postes")
+const userRoutes=require("../Routes/user")
+const commentRoutes=require("../Routes/CommentRoutes")
+const latestGames=require("../Routes/FeaturedGamesRoutes")
+const trending=require("../Routes/TrendingDiscussionRoutes")
+const latestNews=require("../Routes/LatestNewsRoutes")
+const admin = require('firebase-admin');
+const ChatEngine = require('chat-engine');
+
+
 
 const app = express();
 const server = http.createServer(app);
@@ -27,16 +40,17 @@ io.on('connection', (socket) => {
 app.use('/peerjs', peerServer);
 app.use(cors())
 app.use(express.json()); // Add this line
-app.use('/products', ProductRoutes); // Add this line
+app.use('/products', ProductsRoutes); // Add this line
 app.use("/postes", Postes)
 app.use('/users', userRoutes)
-app.use('/comments', commentRoutes);app.use("/games",latestGames)
+app.use('/comments', commentRoutes);
+app.use("/games",latestGames)
 app.use("/new",latestNews)
 app.use("/trending",trending)
 
 
 
-app.use('/peerjs', peerServer);
+// app.use('/peerjs', peerServer);
 
 const serviceAccount = require('./gamershubtn-d9e43-firebase-adminsdk-be9cu-7da513987d.json');
 admin.initializeApp({
