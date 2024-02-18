@@ -152,9 +152,13 @@ const SignUp = () => {
       <Image
         className="img"
         src="/signn.png" width={1900}height={100}></Image>
+ <p className='welcome-message'>
+      Welcome to the Ultimate Gaming Haven<p>Level Up with Us !</p> 
+    </p>
+
 
     <div className='about'>
-<h1>Discover Our Space :</h1>
+<h5>Discover Our Space :</h5>
 <div className='game'>
   <img src ="https://nftplazas.com/wp-content/uploads/2023/02/ImmutableX-Sets-Up-All-Access-Immutable-Gaming-Passport.png"/>
 <p>Welcome to GameHub, the pulsating heart of the gaming community. At GameHub, we're not just a website; we're a vibrant haven where gamers from all walks of life converge, connect, and forge lasting friendships. Engage in lively discussions, share your gaming achievements, and immerse yourself in a world where camaraderie knows no bounds. Every click, every post, and every shared moment adds to the tapestry of our thriving gaming universe.</p>
