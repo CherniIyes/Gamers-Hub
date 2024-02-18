@@ -9,6 +9,7 @@ import { useSignInWithGoogle } from 'react-firebase-hooks/auth'
 import {GoogleProvider } from '../firebase/config'
 import '../globals.css';
 import Footer from '../Footer/Footer'
+import Image from 'next/image';
 
 
 
@@ -91,13 +92,13 @@ const SignUp = () => {
   return (
     
     <div className="min-h-screen flex items-center justify-center bg-gray-900 background-blur container">
-       <div>
-    
+       <div className='logo'>
+    <h1>GamersHub</h1>
         <hr></hr>
         </div>
       <div className="signup-container">
        
-        <h1 className="text-white text-2xl mb-5">CREATE ACCOUNT </h1>
+      
         <input
           type="firstName"
           placeholder="First Name"
@@ -147,10 +148,11 @@ const SignUp = () => {
           Sign In
         </button>
       </div>
-      <img
+
+      <Image
         className="img"
-        src="https://assets-global.website-files.com/646557ee455c3e16e4a9bcb3/64ed5632e0c52c100c16f293_bg-gamers.webp"
-      />
+        src="/signn.png" width={1900}height={100}></Image>
+
     <div className='about'>
 <h1>Discover Our Space :</h1>
 <div className='game'>

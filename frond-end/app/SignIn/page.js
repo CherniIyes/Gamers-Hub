@@ -1,16 +1,19 @@
 'use client';
+'use client';
 import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase/config';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-import CommunityHub from "../CommunityHub/page.jsx"
+import '../globals.css'
+
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   const [user, setUser] = useState(null);
   const router = useRouter();
+
   const handleSignIn = async () => {
     try {
       // Validate email and password
@@ -37,7 +40,7 @@ const SignIn = () => {
       setEmail('');
       setPassword('');
       router.push('/');
-      <CommunityHub userData={user} />
+      
       alert("Sign in successful");
     } catch (e) {
       console.error(e);
@@ -45,12 +48,11 @@ const SignIn = () => {
     }
   };
 
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 background-blur container">
       <div>
         <h2>your logo</h2>
-        <hr></hr>
+        <hr />
       </div>
       <div className="signup-container1">
         <h1 className="text-white text-2xl mb-5">Sign In</h1>
@@ -74,6 +76,14 @@ const SignIn = () => {
         >
           Sign In
         </button>
+        
+        <p  className="p">
+          Don't have an account? <a href="/SignUp" className="text-blue-500 hover:underline" style={{ color: 'white' }}>Sign Up</a>
+        </p>
+        
+        <p className="p">
+          By signing in, you agree to our <a href="/terms" className="text-blue-500 hover:underline" style={{ color: 'white' }}>Terms of Service</a> and <a href="/privacy" className="text-blue-500 hover:underline" style={{ color: 'white' }}>Privacy Policy</a>.
+        </p>
       </div>
       <img
         className="img"
@@ -84,4 +94,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-
