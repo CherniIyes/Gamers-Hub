@@ -1,9 +1,12 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase/config';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import Link from 'next/link';
+import Profile from '../profile/page'
+
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -11,6 +14,22 @@ const SignIn = () => {
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   const [user, setUser] = useState(null);
   const router = useRouter();
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [userData, setUserData] = useState([])
+
+  useEffect(() => {
+
+
+    if (isLoggedIn && loginData.email) {
+          // Fetch user data after login
+          fetchUserData(loginData.email);
+     
+          const storedIsLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+          setLoggedIn(storedIsLoggedIn || false);
+    }
+}, [isLoggedIn, loginData.email]);
+
+
 
   const handleSignIn = async () => {
     try {
@@ -46,8 +65,31 @@ const SignIn = () => {
 };
   
 
+const fetchUserData = async (email) => {
+  console.log('Fetching user data for email:', email); // Debug log
+  try {
+        const response = await axios.get(`http://localhost:4000/users/${email}`, {
+              headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem('token'), // Include the token in the headers
+              },
+        });
+
+        const userData = response.data;
+        setUserData(userData);
+        localStorage.setItem("user", JSON.stringify(userData));
+        console.log('userData:', userData);
+
+
+  } catch (error) {
+        console.error('Error fetching user data:', error);
+  }
+};
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 background-blur container">
+    <Profile   isLoggedIn={isLoggedIn} userData={userData}/>
+
     <div>
      <h2>your logo</h2>
      <hr></hr>

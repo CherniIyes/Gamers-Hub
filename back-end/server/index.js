@@ -1,42 +1,60 @@
 const express = require('express');
 const http = require('http');
 const cors = require('cors');
-const { Server } = require('socket.io'); // Import Server from socket.io
-
+const { Server } = require('socket.io'); 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server); // Create a new instance of Server
-
+const io = new Server(server); 
 const port = process.env.PORT || 4000;
+const { ExpressPeerServer } = require('peer');
+const admin = require('firebase-admin');
+const ChatEngine = require('chat-engine');
 
-app.use(cors());
+
+
+const ProductRoutes = require('../Routes/ProductsRoutes'); 
+const Postes = require('../Routes/Postes')
+const userRoutes = require('../Routes/user');
+const commentRoutes = require('../Routes/CommentRoutes')
+const latestGames = require("../Routes/FeaturedGamesRoutes")
+const latestNews = require("../Routes/LatestNewsRoutes")
+const trending = require("../Routes/TrendingDiscussionRoutes")
 
 io.on('connection', (socket) => {
   console.log('a user connected');
 
   socket.on('message', (data) => {
-    console.log(data); // Log the received message data
-    io.emit('message', data); // Broadcast the received message data to all clients
+    console.log(data); 
+    io.emit('message', data); 
   });
 
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });
 });
-// app.use(cors());app.use(cors())
-app.use('/peerjs', peerServer);
+
+const peerServer = ExpressPeerServer(server, {
+  debug: true
+});
+
+
+
 app.use(cors())
-app.use(express.json()); // Add this line
-app.use('/products', ProductRoutes); // Add this line
+app.use(express.json());
+app.use('/peerjs', peerServer);
+app.use('/products', ProductRoutes);
 app.use("/postes", Postes)
 app.use('/users', userRoutes)
-app.use('/comments', commentRoutes);app.use("/games",latestGames)
-app.use("/new",latestNews)
-app.use("/trending",trending)
+app.use('/comments', commentRoutes)
+app.use("/games", latestGames)
+app.use("/new", latestNews)
+app.use("/trending", trending)
 
 
 
-app.use('/peerjs', peerServer);
+
+
+
 
 const serviceAccount = require('./gamershubtn-d9e43-firebase-adminsdk-be9cu-7da513987d.json');
 admin.initializeApp({
@@ -65,16 +83,16 @@ app.post("/authenticate", async (req, res) => {
   } catch (error) {
 
     if (error.response) {
-      // If there's a response, extract the status code and response data
+    
       const { status, data } = error.response;
       return res.status(status).json(data);
     } else {
-      // If there's no response, handle the error as a generic server error
+      
       return res.status(500).json({ error: "Internal Server Error" });
     }
   }
 });
-// Remove the incorrect call to connect() method
+
 
 app.get('/token/:username', async (req, res) => {
   const { username } = req.params;
@@ -89,18 +107,9 @@ app.get('/token/:username', async (req, res) => {
   res.send({ token: tokenData.token });
 });
 
-// Instead, handle authentication after ChatEngine is ready
-// chatEngine.on('$.ready', () => {
-//   console.log('ChatEngine is ready');
 
 
-// io.on('connection', (socket) => {
-//   console.log('A user connected');
 
-//   socket.on('disconnect', () => {
-//     console.log('A user disconnected');
-//   });
-// });
 
 server.listen(port, () => {
   console.log(`Server is running on port ${port}`);
