@@ -1,11 +1,11 @@
 'use client';
-import React, { useState ,useEffect} from 'react';
+import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase/config';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-import Link from 'next/link';
-import Profile from '../profile/page'
+// import Link from 'next/link';
+// import Profile from '../profile/page'
 
 
 const SignIn = () => {
@@ -14,81 +14,82 @@ const SignIn = () => {
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   const [user, setUser] = useState(null);
   const router = useRouter();
-  const [isLoggedIn, setLoggedIn] = useState(false);
-  const [userData, setUserData] = useState([])
+//   const [isLoggedIn, setLoggedIn] = useState(false);
+//   const [userData, setUserData] = useState([])
 
-  useEffect(() => {
+//   useEffect(() => {
 
 
-    if (isLoggedIn && loginData.email) {
-          // Fetch user data after login
-          fetchUserData(loginData.email);
+//     if (isLoggedIn && loginData.email) {
+//           // Fetch user data after login
+//           fetchUserData(loginData.email);
      
-          const storedIsLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
-          setLoggedIn(storedIsLoggedIn || false);
-    }
-}, [isLoggedIn, loginData.email]);
+//           const storedIsLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
+//           setLoggedIn(storedIsLoggedIn || false);
+//     }
+// }, [isLoggedIn, loginData.email]);
 
 
 
   const handleSignIn = async () => {
     try {
-        // Validate email and password
-        if (!email || !password) {
-            alert("Please enter both email and password.");
-            return;
-        }
+      // Validate email and password
+      if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+      }
 
-        const loginResponse = await axios.post('http://localhost:4000/users/login', {
-            email,
-            password,
-        });
+      const loginResponse = await axios.post('http://localhost:4000/users/login', {
+        email,
+        password,
+      });
 
-        console.log('Login API response:', loginResponse);
+      console.log('Login API response:', loginResponse);
 
-        if (!loginResponse || !loginResponse.data || loginResponse.data.error) {
-            alert("Invalid email or password. Please try again.");
-            return;
-        }
+      if (!loginResponse || !loginResponse.data || loginResponse.data.error) {
+        alert("Invalid email or password. Please try again.");
+        return;
+      }
 
-        sessionStorage.setItem('user', true);
-        setUser(loginResponse.data);
+      sessionStorage.setItem('user', true);
+      setUser(loginResponse.data);
       console.log('user:', loginResponse);
-        setEmail('');
-        setPassword('');
-        router.push('/');
-        alert("Sign in successful");
+      setEmail('');
+      setPassword('');
+      router.push('/');
+      
+      alert("Sign in successful");
     } catch (e) {
-        console.error(e);
-        alert("Sign in failed. Please try again.");
+      console.error(e);
+      alert("Sign in failed. Please try again.");
     }
-};
-  
-
-const fetchUserData = async (email) => {
-  console.log('Fetching user data for email:', email); // Debug log
-  try {
-        const response = await axios.get(`http://localhost:4000/users/${email}`, {
-              headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': localStorage.getItem('token'), // Include the token in the headers
-              },
-        });
-
-        const userData = response.data;
-        setUserData(userData);
-        localStorage.setItem("user", JSON.stringify(userData));
-        console.log('userData:', userData);
+  };
 
 
-  } catch (error) {
-        console.error('Error fetching user data:', error);
-  }
-};
+// const fetchUserData = async (email) => {
+//   console.log('Fetching user data for email:', email); // Debug log
+//   try {
+//         const response = await axios.get(`http://localhost:4000/users/${email}`, {
+//               headers: {
+//                     'Content-Type': 'application/json',
+//                     'Authorization': localStorage.getItem('token'), // Include the token in the headers
+//               },
+//         });
+
+//         const userData = response.data;
+//         setUserData(userData);
+//         localStorage.setItem("user", JSON.stringify(userData));
+//         console.log('userData:', userData);
+
+
+//   } catch (error) {
+//         console.error('Error fetching user data:', error);
+//   }
+// };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 background-blur container">
-    <Profile   isLoggedIn={isLoggedIn} userData={userData}/>
+    {/* <Profile   isLoggedIn={isLoggedIn} userData={userData}/> */}
 
     <div>
      <h2>your logo</h2>
