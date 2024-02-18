@@ -60,12 +60,6 @@ app.use("/trending", trending)
 
 
 
-
-
-
-
-
-
 const serviceAccount = require('./gamershubtn-d9e43-firebase-adminsdk-be9cu-7da513987d.json');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
@@ -93,16 +87,16 @@ app.post("/authenticate", async (req, res) => {
   } catch (error) {
 
     if (error.response) {
-      // If there's a response, extract the status code and response data
+    
       const { status, data } = error.response;
       return res.status(status).json(data);
     } else {
-      // If there's no response, handle the error as a generic server error
+      
       return res.status(500).json({ error: "Internal Server Error" });
     }
   }
 });
-// Remove the incorrect call to connect() method
+
 
 app.get('/token/:username', async (req, res) => {
   const { username } = req.params;
@@ -117,18 +111,9 @@ app.get('/token/:username', async (req, res) => {
   res.send({ token: tokenData.token });
 });
 
-// Instead, handle authentication after ChatEngine is ready
-// chatEngine.on('$.ready', () => {
-//   console.log('ChatEngine is ready');
 
 
-// io.on('connection', (socket) => {
-//   console.log('A user connected');
 
-//   socket.on('disconnect', () => {
-//     console.log('A user disconnected');
-//   });
-// });
 
 
 

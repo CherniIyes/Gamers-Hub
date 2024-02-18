@@ -20,7 +20,7 @@ const TheirMessage = ({ lastMessage, message }) => {
             />
           )
           : (
-            <div className="message" style={{ float: 'left', backgroundColor: '#05b57a ', marginLeft: isFirstMessageByUser ? '4px' : '48px' }}>
+            <div className="message" style={{ float: 'left', backgroundColor: '#cccccc', marginLeft: isFirstMessageByUser ? '4px' : '48px' }}>
               {message.text}
             </div>
           )}
