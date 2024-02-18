@@ -1,12 +1,11 @@
 'use client';
+'use client';
 import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase/config';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-// import Link from 'next/link';
-// import Profile from '../profile/page'
-
+import '../globals.css'
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -14,22 +13,6 @@ const SignIn = () => {
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   const [user, setUser] = useState(null);
   const router = useRouter();
-//   const [isLoggedIn, setLoggedIn] = useState(false);
-//   const [userData, setUserData] = useState([])
-
-//   useEffect(() => {
-
-
-//     if (isLoggedIn && loginData.email) {
-//           // Fetch user data after login
-//           fetchUserData(loginData.email);
-     
-//           const storedIsLoggedIn = JSON.parse(localStorage.getItem("isLoggedIn"));
-//           setLoggedIn(storedIsLoggedIn || false);
-//     }
-// }, [isLoggedIn, loginData.email]);
-
-
 
   const handleSignIn = async () => {
     try {
@@ -65,37 +48,13 @@ const SignIn = () => {
     }
   };
 
-
-// const fetchUserData = async (email) => {
-//   console.log('Fetching user data for email:', email); // Debug log
-//   try {
-//         const response = await axios.get(`http://localhost:4000/users/${email}`, {
-//               headers: {
-//                     'Content-Type': 'application/json',
-//                     'Authorization': localStorage.getItem('token'), // Include the token in the headers
-//               },
-//         });
-
-//         const userData = response.data;
-//         setUserData(userData);
-//         localStorage.setItem("user", JSON.stringify(userData));
-//         console.log('userData:', userData);
-
-
-//   } catch (error) {
-//         console.error('Error fetching user data:', error);
-//   }
-// };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 background-blur container">
-    {/* <Profile   isLoggedIn={isLoggedIn} userData={userData}/> */}
-
-    <div>
-     <h2>your logo</h2>
-     <hr></hr>
-     </div>
-   <div className="signup-container1">
+      <div>
+        <h2>your logo</h2>
+        <hr />
+      </div>
+      <div className="signup-container1">
         <h1 className="text-white text-2xl mb-5">Sign In</h1>
         <input
           type="email"
@@ -117,6 +76,14 @@ const SignIn = () => {
         >
           Sign In
         </button>
+        
+        <p  className="p">
+          Don't have an account? <a href="/SignUp" className="text-blue-500 hover:underline" style={{ color: 'white' }}>Sign Up</a>
+        </p>
+        
+        <p className="p">
+          By signing in, you agree to our <a href="/terms" className="text-blue-500 hover:underline" style={{ color: 'white' }}>Terms of Service</a> and <a href="/privacy" className="text-blue-500 hover:underline" style={{ color: 'white' }}>Privacy Policy</a>.
+        </p>
       </div>
       <img
         className="img"
@@ -127,4 +94,3 @@ const SignIn = () => {
 };
 
 export default SignIn;
-
