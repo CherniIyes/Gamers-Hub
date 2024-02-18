@@ -48,7 +48,7 @@
   padding: 100px 0;
   text-align: center;
   margin-top: 19%;
- 
+
 }
 
 .hero-content {
@@ -99,9 +99,10 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 5px;
 }
+
 .game-grid img {
-  width : 70%;
-  height : 70%
+  width: 70%;
+  height: 70%
 }
 
 /* Latest news section styles */
@@ -122,10 +123,11 @@
 .latest-news h3 {
   margin-right: 5%;
   color: #31055f;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: large;
 
 }
+
 .latest-news p {
   margin-bottom: 10%;
   margin-right: 8%;
@@ -133,6 +135,7 @@
   font-size: large;
 
 }
+
 .news-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -151,10 +154,11 @@
   font-size: 2rem;
   margin-bottom: 20px;
 }
-.trending-discussions h3 {
-  color:#31055f
 
+.trending-discussions h3 {
+  color: #31055f
 }
+
 .trending-discussions p {
   font-family: monospace;
   font-size: large;
@@ -267,6 +271,8 @@
   list-style: none;
   display: flex;
   gap: 20px;
+  position: relative;
+  right: 39px;
 }
 
 .nav-links a {

@@ -4,55 +4,55 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase/config';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-
+import CommunityHub from "../CommunityHub/page.jsx"
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   const [user, setUser] = useState(null);
   const router = useRouter();
-
   const handleSignIn = async () => {
     try {
-        // Validate email and password
-        if (!email || !password) {
-            alert("Please enter both email and password.");
-            return;
-        }
+      // Validate email and password
+      if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+      }
 
-        const loginResponse = await axios.post('http://localhost:4000/users/login', {
-            email,
-            password,
-        });
+      const loginResponse = await axios.post('http://localhost:4000/users/login', {
+        email,
+        password,
+      });
 
-        console.log('Login API response:', loginResponse);
+      console.log('Login API response:', loginResponse);
 
-        if (!loginResponse || !loginResponse.data || loginResponse.data.error) {
-            alert("Invalid email or password. Please try again.");
-            return;
-        }
+      if (!loginResponse || !loginResponse.data || loginResponse.data.error) {
+        alert("Invalid email or password. Please try again.");
+        return;
+      }
 
-        sessionStorage.setItem('user', true);
-        setUser(loginResponse.data);
+      sessionStorage.setItem('user', true);
+      setUser(loginResponse.data);
       console.log('user:', loginResponse);
-        setEmail('');
-        setPassword('');
-        router.push('/');
-        alert("Sign in successful");
+      setEmail('');
+      setPassword('');
+      router.push('/');
+      <CommunityHub userData={user} />
+      alert("Sign in successful");
     } catch (e) {
-        console.error(e);
-        alert("Sign in failed. Please try again.");
+      console.error(e);
+      alert("Sign in failed. Please try again.");
     }
-};
-  
+  };
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 background-blur container">
-    <div>
-     <h2>your logo</h2>
-     <hr></hr>
-     </div>
-   <div className="signup-container1">
+      <div>
+        <h2>your logo</h2>
+        <hr></hr>
+      </div>
+      <div className="signup-container1">
         <h1 className="text-white text-2xl mb-5">Sign In</h1>
         <input
           type="email"
