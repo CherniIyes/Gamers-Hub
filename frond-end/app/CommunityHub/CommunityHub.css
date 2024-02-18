@@ -27,7 +27,7 @@ body {
       background-color: #171a21;
       color: #ffffff;
       position: relative;
-  }
+}
 
 .community-dimage {
       width: 100%;
@@ -527,3 +527,64 @@ body {
       right: 0;
       top: 0;
 } */
+
+.soura {
+      width: 101%;
+}
+
+.added-comments-section {
+      position: relative;
+      right: 246px;
+      top: 14px;
+}
+
+.comments-section {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-content: flex-start;
+      align-items: flex-start;
+      justify-content: center;
+}
+
+.added-comments {}
+
+.add-comment-form {}
+
+.Add-a-Comment {
+      position: relative;
+      left: -245px;
+      top: 8px;
+}
+
+.commentText {}
+
+.submit-Comment {}
+
+.comment-input {
+      height: 24px;
+      width: 322px;
+      position: relative;
+      left: 108px;
+      top: -6px;
+  }
+
+.top-add-comment {
+      position: relative;
+      top: 19px;
+}
+.top-com {
+      
+}
+
+.filsa-2 {
+      background-color: #2a475e;
+      color: #fff;
+      padding: 10px 17px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.2s ease-in-out;
+      position: relative;
+      left: 440px;
+      top: -41px;
+  }

@@ -6,7 +6,9 @@ import './CommunityHub.css';
 // import Navbar from "../Navbar/Page.jsx";
 import Link from 'next/link';
 
-const Community = (props) => {
+const Community = () => {
+
+
       const [postes, setPostes] = useState([]);
       const [searchTerm, setSearchTerm] = useState('');
       const [selectedPost, setSelectedPost] = useState(null)
@@ -145,7 +147,7 @@ const Community = (props) => {
                   setNewHubData({ ...newHubData, image: file });
             }
       };
-      console.log("props", props.userData)
+
       return (
             <div className='all'>
                   <nav className="navbar">
@@ -156,6 +158,12 @@ const Community = (props) => {
                               </Link>
                               <Link href="/CommunityHub">
                                     <p>CommunityHub</p>
+                              </Link>
+                              <Link href="/Products">
+                                    <p>Games</p>
+                              </Link>
+                              <Link href="/chatt">
+                                    <p onClick={() => setIsChatVisible(true)}>Chat</p>
                               </Link>
                         </div>
                   </nav>
@@ -209,14 +217,17 @@ const Community = (props) => {
                                     <div className="popup-content">
                                           <h3>{selectedPost.title}</h3>
                                           <p>{selectedPost.description}</p>
+                                          <img className='soura' src={selectedPost.image} alt="" />
                                           <p>{selectedPost.bigdescription}</p>
-                                          <div>{selectedPost.image}</div>
 
                                           {/* Display comments */}
+                                          <h4 className='added-comments-section'>Comments :</h4>
+                                          <hr className='top-com' />
                                           <div className="comments-section">
-                                                <h4>Comments</h4>
+
+
                                                 {comments.map((comment) => (
-                                                      <div key={comment.id} className="comment">
+                                                      <div key={comment.id} className="added-comments">
                                                             <strong>{comment.user}</strong>: {comment.text}
                                                       </div>
                                                 ))}
@@ -224,12 +235,13 @@ const Community = (props) => {
 
                                           {/* Form for users to submit new comments */}
                                           <div className="add-comment-form">
-                                                <h4>Add a Comment</h4>
+                                                <hr className='top-add-com' />
+                                                <h4 className='Add-a-Comment'>Add a Comment :</h4>
                                                 <form onSubmit={handleCommentSubmit}>
                                                       <div className="form-group">
-                                                            <label htmlFor="commentText">Comment:</label>
-                                                            <textarea
-                                                                  id="commentText"
+
+
+                                                            <textarea className='comment-input'
                                                                   name="commentText"
                                                                   rows="4"
                                                                   cols="50"
@@ -238,7 +250,7 @@ const Community = (props) => {
                                                                   required
                                                             ></textarea>
                                                       </div>
-                                                      <button type="submit">Submit Comment</button>
+                                                      <button className='filsa-2' type="submit-Comment">Submit Comment</button>
                                                 </form>
                                           </div>
                                     </div>

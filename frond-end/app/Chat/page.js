@@ -1,7 +1,8 @@
-// pages/chatroom.js
+// chatroom.js
 "use client"
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
+import './chatroom.css'; // Import the CSS file
 
 const Chatroom = () => {
   const [messages, setMessages] = useState([]);
@@ -31,23 +32,29 @@ const Chatroom = () => {
 
   const handleSendMessage = () => {
     if (inputValue.trim() !== '') {
-      socket.emit('message', inputValue);
+      const messageData = {
+        username: 'YourUsernameHere', // Replace 'YourUsernameHere' with the actual username
+        message: inputValue
+      };
+      socket.emit('message', messageData);
       setInputValue('');
     }
   };
 
   return (
-    <div>
-      <div>
+    <div className="chatroom-container">
+      <div className="message-container">
         {messages.map((data, index) => (
-          <div key={index}>
-            <span>{data.username}: </span>
-            <span>{data.message}</span>
+          <div key={index} className="message">
+            <span className="username">{data.username}: </span>
+            <span className="content">{data.message}</span>
           </div>
         ))}
       </div>
-      <input type="text" value={inputValue} onChange={handleInputChange} />
-      <button onClick={handleSendMessage}>Send</button>
+      <div className="input-container">
+        <input type="text" value={inputValue} onChange={handleInputChange} className="input-field" />
+        <button onClick={handleSendMessage} className="send-button">Send</button>
+      </div>
     </div>
   );
 };
