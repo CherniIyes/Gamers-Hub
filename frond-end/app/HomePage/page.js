@@ -6,6 +6,7 @@ import './Home.css'; // Adjust the import to match the file name
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 import Chat from '../chatt/page'
+import Footer from '../Footer/Footer'
 
 
 // import Navbar from '../Navbar/Page'; // Import the Navbar component
@@ -50,9 +51,9 @@ const HomePage = () => {
 
     <div className='mainne'>
       <nav className="navbar">
-      <div className='logo'>
-    <h1>GamersHub</h1>
-       
+        <div className='logo'>
+          <h1>GamersHub</h1>
+
         </div>
         <div className="nav-links">
           <Link href="/HomePage">
@@ -127,9 +128,12 @@ const HomePage = () => {
         )}
       </main>
 
-      <footer className={`footer ${scrolled ? 'scrolled' : ''}`}>
+      {/* <footer className={`footer ${scrolled ? 'scrolled' : ''}`}>
         <p>&copy; {new Date().getFullYear()} GamersHub. All rights reserved.</p>
-      </footer>
+      </footer> */}
+      <div className='fooo'>
+        <Footer />
+      </div>
     </div>
   );
 }

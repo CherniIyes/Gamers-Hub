@@ -16,7 +16,6 @@ const { ExpressPeerServer } = require('peer');
 
 
 
-
 const ProductRoutes = require('../Routes/ProductsRoutes');
 const Postes = require('../Routes/Postes')
 const userRoutes = require('../Routes/user');
@@ -45,7 +44,6 @@ const peerServer = ExpressPeerServer(server, {
 
 
 app.use(cors())
-
 app.use(express.json());
 app.use('/peerjs', peerServer);
 app.use('/products', ProductRoutes);

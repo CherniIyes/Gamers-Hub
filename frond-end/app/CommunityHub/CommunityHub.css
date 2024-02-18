@@ -1,5 +1,5 @@
 body {
-      background-color: #1b2838;
+      background-color: black;
 
       font-family: 'Arial', sans-serif;
       /* Add your preferred font-family */
@@ -16,7 +16,10 @@ body {
       max-width: 100%;
       margin: 0 auto;
       position: relative;
-      top: 201px;
+      top: 124px;
+      background-color: rgba(3, 35, 219, 0.3);
+      width: 1761px;
+      height: 792px;
 }
 
 .community-card {
@@ -27,6 +30,7 @@ body {
       background-color: #171a21;
       color: #ffffff;
       position: relative;
+      top: 55px;
 }
 
 .community-dimage {
@@ -76,13 +80,11 @@ body {
 .search {
       position: relative;
       width: 344px;
-      top: 202px;
+      top: 99px;
       left: 59%;
-      /* Center the search container */
       transform: translateX(-50%);
-      /* Adjust position based on container width */
       height: 192px;
-      background-color: #0d131b;
+      background-color: #171a21;
 }
 
 
@@ -130,14 +132,11 @@ body {
 .next {
       position: relative;
       height: 192px;
-      background-color: #0d131b;
+      background-color: #171a21;
       width: 346px;
-      top: -15px;
       left: 37%;
-      top: 10px;
-
+      top: -93px;
       transform: translateX(-50%);
-
 }
 
 
@@ -159,20 +158,49 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
+      overflow-y: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1000;
 }
 
 .popup {
       background: #1b2838;
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-      max-width: 90%;
-      /* Make it responsive */
-      width: 600px;
+      max-width: 600px;
+      margin: 56px auto;
       overflow: hidden;
+      position: relative;
+      padding: 20px;
+      max-height: 84vh;
+      overflow-y: auto;
+}
+
+/* Custom scrollbar styles for webkit browsers (Chrome, Opera, etc.) */
+.popup-container::-webkit-scrollbar {
+      width: 12px;
+}
+
+.popup-container::-webkit-scrollbar-thumb {
+      background-color: #5d7388;
+      border-radius: 10px;
+}
+
+.popup-container::-webkit-scrollbar-track {
+      background-color: #1b2838;
+}
+
+/* Standard scrollbar styles for other browsers */
+.popup-container {
+      scrollbar-width: thin;
+      scrollbar-color: #5d7388 #1b2838;
+}
+
+.popup-container::-webkit-scrollbar-thumb {
+      background-color: #5d7388;
+}
+
+.popup-container::-webkit-scrollbar-track {
+      background-color: #1b2838;
 }
 
 
@@ -183,8 +211,10 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: center;
-
-
+      position: relative;
+      top: -19px;
+      left: -19px;
+      width: 638px;
 }
 
 .popup-header span {
@@ -261,7 +291,11 @@ body {
 
 .top-shelf {
       position: relative;
-      top: 20px;
+      top: 49px;
+      left: 55px;
+      width: 1761px;
+      /* background-color: #171a21; */
+      background-color: rgba(3, 35, 219, 0.3);
 }
 
 
@@ -392,7 +426,7 @@ body {
 
 
 .ziiiiiiz {
-      background-color: #2a475e;
+      background-color: #ff0000;
       color: #fff;
       padding: 10px 17px;
       cursor: pointer;
@@ -548,9 +582,9 @@ body {
       justify-content: center;
 }
 
-.added-comments {}
+/* .added-comments {}
 
-.add-comment-form {}
+.add-comment-form {} */
 
 .Add-a-Comment {
       position: relative;
@@ -558,9 +592,9 @@ body {
       top: 8px;
 }
 
-.commentText {}
+/* .commentText {}
 
-.submit-Comment {}
+.submit-Comment {} */
 
 .comment-input {
       height: 24px;
@@ -575,7 +609,7 @@ body {
       top: 19px;
 }
 
-.top-com {}
+/* .top-com {} */
 
 .filsa-2 {
       background-color: #2a475e;
@@ -587,4 +621,10 @@ body {
       position: relative;
       left: 440px;
       top: -41px;
+}
+
+
+.foo {
+      position: relative;
+      top: 155px;
 }
