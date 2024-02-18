@@ -163,7 +163,7 @@ const Community = () => {
                                     <p>Games</p>
                               </Link>
                               <Link href="/chatt">
-                                    <p onClick={() => setIsChatVisible(true)}>Chat</p>
+                                    <p>Chat</p>
                               </Link>
                         </div>
                   </nav>
