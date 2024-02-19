@@ -152,7 +152,10 @@ const Community = () => {
       return (
             <div className='all'>
                   <nav className="navbar">
-                        <div className="logo">Your Logo</div>
+                  <div className='logo'>
+          <h1>GamersHub</h1>
+
+        </div>
                         <div className="nav-links">
                               <Link href="/HomePage">
                                     <p className="home-link">Home</p>

@@ -102,7 +102,7 @@ function Product() {
       </nav>
       <div className="product-background">
         <div className="background-content">
-          <h2>Welcome to our Accessories Store</h2>
+          {/* <h2>Welcome to our Accessories Store</h2> */}
           {/* <p>Immerse yourself in the ultimate gaming experience with our extensive collection of games and accessories. Whether you're a casual gamer or a competitive player, we have everything you need to take your gaming to the next level.</p>
           <p>Discover the latest releases, classic favorites, and exclusive accessories that will enhance your gameplay and elevate your gaming setup. From high-performance gaming keyboards and mice to immersive VR headsets and stylish gaming chairs, we've got you covered.</p>
           <p>Experience unparalleled graphics, seamless gameplay, and immersive sound quality with our top-of-the-line gaming gear. Dominate the virtual battlefield, embark on epic adventures, and connect with fellow gamers from around the world.</p>
@@ -147,12 +147,12 @@ function Product() {
           </div>
         </div>
       ) : selectedProduct ? (
-        <div className="details-container">
-          <h5 className="card-title">{selectedProduct.name}</h5>
+        <div className="details-container5">
+          <h6 className="card-title1">{selectedProduct.name}</h6>
           <img className="card-img-top" src={selectedProduct.image} alt="Product" onClick={() => handleImageClick(selectedProduct)} />
-          <p className="card-text">Description: {selectedProduct.description}</p>
-          <p className="card-text">Price: {selectedProduct.price}</p>
-          <div className="button-container">
+          <p className="card-textt">Description: {selectedProduct.description}</p>
+          <p className="card-textt">Price: {selectedProduct.price}</p>
+          <div className="button-container3">
             <button className="delete-button" onClick={() => handleDelete(selectedProduct.id)}>Delete</button>
             <button className="update-button" onClick={() => handleUpdate(selectedProduct)}>Update</button>
             <button className="back-button" onClick={() => setSelectedProduct(null)}>Back to List</button>

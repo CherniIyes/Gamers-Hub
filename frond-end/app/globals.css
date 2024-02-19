@@ -50,7 +50,7 @@ body {
     font-size: 16px;
     width: 100%;
     background-color: rgb(3, 3, 81);
-    box-shadow: 0 0 2px 1px #bf00ff;
+    box-shadow: 0 0 2px 1px #ff0000;
     color: #fff;
     width:92%
   
@@ -140,7 +140,7 @@ input {
   font-size: 16px;
   width: 100%;
   background-color: rgb(3, 3, 81);
-  box-shadow: 0 0 2px 1px #bf00ff;
+  box-shadow: 0 0 2px 1px #ff0015;
   color: #fff;
   width:90%
 }
@@ -279,15 +279,7 @@ h4 {
   }
 }
 
-/* ... (rest of the styles) */
 
-
-
-
-
-
-
-/* Rest of the styles remain unchanged */
 
 .game{
   display: flex;

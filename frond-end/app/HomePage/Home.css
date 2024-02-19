@@ -47,7 +47,8 @@
   color: #fff;
   padding: 100px 0;
   text-align: center;
-  margin-top: 19%;
+  margin-top: 15%;
+
 
 }
 
@@ -68,8 +69,8 @@
 
 .hero .btn {
   display: inline-block;
-  background-color: #ff0;
-  color: #000;
+  background-color: rgb(255, 0, 0);
+  color: #ffffff;
   padding: 10px 20px;
   font-size: 1rem;
   text-decoration: none;
@@ -81,7 +82,7 @@
 }
 
 .featured-games {
-  background-color: #222;
+  background-color: #10004e;
   color: #fff;
   padding: 50px 0;
   text-align: center;
@@ -106,7 +107,7 @@
 }
 
 .latest-news {
-  background-color: #444;
+  background-color: #1b316e;
   color: #fff;
   padding: 50px 0;
   text-align: center;
@@ -123,7 +124,7 @@
 
 .latest-news h3 {
   margin-right: 5%;
-  color: #31055f;
+  color: #e10606;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: large;
 
@@ -145,7 +146,7 @@
 
 /* Trending discussions section styles */
 .trending-discussions {
-  background-color: #666;
+  background-color: #1e2d4b;
   color: #fff;
   padding: 50px 0;
   text-align: center;
@@ -159,7 +160,7 @@
 }
 
 .trending-discussions h3 {
-  color: #31055f
+  color: #810303
 }
 
 .trending-discussions p {
@@ -177,38 +178,14 @@
   gap: 20px;
 }
 
-/* Footer styles */
-.footer {
-  background-color: #333;
-  color: #fff;
-  padding: 20px 0;
-  text-align: center;
-}
 
-.footer p {
-  font-size: 1rem;
-}
 
-.footer p a {
-  color: #ffc107;
-  text-decoration: none;
-}
-
-.footer p a:hover {
-  text-decoration: underline;
-}
-
-/* Home.css */
-
-/* Navbar styles */
-/* Add this CSS to style your navbar */
-/* Navbar styles */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(79, 3, 3, 0.8);
   /* Semi-transparent black */
   padding: 10px 0;
   z-index: 1000;
@@ -242,28 +219,16 @@
 }
 
 .navbar ul li a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(3, 1, 105, 0.1);
   /* Semi-transparent white on hover */
 }
 
 /* Navbar scrolled state */
 .navbar.scrolled {
-  background-color: #333;
+  background-color: #100365;
   /* Change background color when scrolled */
 }
 
-/* Adjust other sections as needed */
-
-
-
-.navbar {
-  background-color: #171a21;
-  color: white;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .logo {
   font-size: 1.5em;
