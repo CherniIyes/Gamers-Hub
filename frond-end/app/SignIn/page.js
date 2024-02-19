@@ -6,6 +6,8 @@ import { auth } from '../firebase/config';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import '../globals.css'
+import Image from 'next/image';
+
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -50,10 +52,10 @@ const SignIn = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900 background-blur container">
-      <div>
-        <h2>your logo</h2>
-        <hr />
-      </div>
+     <div className='logo'>
+    <h1>GamersHub</h1>
+        <hr></hr>
+        </div>
       <div className="signup-container1">
         <h1 className="text-white text-2xl mb-5">Sign In</h1>
         <input
@@ -87,8 +89,22 @@ const SignIn = () => {
       </div>
       <img
         className="img"
-        src="https://assets-global.website-files.com/646557ee455c3e16e4a9bcb3/64ed5632e0c52c100c16f293_bg-gamers.webp"
+        src="/sign.png"
       />
+
+<div className='about'>
+<h5>Join Our Space :</h5>
+<div className='game'>
+<video className='vd'   autoPlay loop muted >
+                    <source src="/vi.mp4" type="video/mp4" />
+                        <track src="/vi.mp4"/>
+                </video>
+              
+<p>Welcome to GameHub, the pulsating heart of the gaming community. At GameHub, we're not just a website; we're a vibrant haven where gamers from all walks of life converge, connect, and forge lasting friendships. Engage in lively discussions, share your gaming achievements, and immerse yourself in a world where camaraderie knows no bounds. Every click, every post, and every shared moment adds to the tapestry of our thriving gaming universe.</p>
+<p>Welcome to GameHub, the pulsating heart of the gaming community. At GameHub, we're not just a website; we're a vibrant haven where gamers from all walks of life converge, connect, and forge lasting friendships. Engage in lively discussions, share your gaming achievements, and immerse yourself in a world where camaraderie knows no bounds. Every click, every post, and every shared moment adds to the tapestry of our thriving gaming universe.</p>
+
+</div>
+</div>
     </div>
   );
 };

@@ -11,7 +11,10 @@ const ChatPage = () => {
   return (
     <div>
       <nav className="navbar">
-        <div className="logo">Your Logo</div>
+      <div className='logo'>
+          <h1>GamersHub</h1>
+
+        </div>
         <div className="nav-links">
           <Link href="/HomePage">
             <p className="home-link">Home</p>
@@ -41,7 +44,7 @@ const ChatPage = () => {
         />
 
       </div>
-    
+  
     </div>
   );
 };

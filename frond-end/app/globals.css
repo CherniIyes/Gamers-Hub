@@ -34,7 +34,7 @@ body {
   background-color: transparent;
   border-radius: 18px;
   /* box-shadow: 0 2px 4px rgba(124, 61, 219, 0.2); */
-  margin-left: 3%;
+  margin-left: 72%;
   margin-top: 8%;
   position: absolute;
   z-index: 1;
@@ -50,15 +50,22 @@ body {
     font-size: 16px;
     width: 100%;
     background-color: rgb(3, 3, 81);
-    box-shadow: 0 0 2px 1px #bf00ff;
+    box-shadow: 0 0 2px 1px #ff0000;
     color: #fff;
     width:92%
   
 }
 
+.vd{
+  width:50%;
+  height: 600px;
+  margin-left: 2%;
+  margin-top: 2%;
+}
 .img {
   width: 100%;
   height: 700px;
+ 
 }
 
 h1 {
@@ -70,6 +77,61 @@ h1 {
   margin-top: 1%;
 }
 
+@keyframes lights {
+  0% {
+    color: hsl(230, 40%, 80%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.2),
+      0 0 0.125em hsla(320, 100%, 60%, 0.3),
+      -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+      1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+  }
+  
+  30% { 
+    color: hsl(230, 80%, 90%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 60%, 0.5),
+      -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+      0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+  }
+  
+  40% { 
+    color: hsl(230, 100%, 95%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 90%, 0.5),
+      -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+      0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+  }
+  
+  70% {
+    color: hsl(230, 80%, 90%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 60%, 0.5),
+      0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+      -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+  }
+  
+  100% {
+    color: hsl(230, 40%, 80%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.2),
+      0 0 0.125em hsla(320, 100%, 60%, 0.3),
+      1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+      -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+  }
+  
+}
+h5 {
+  margin: auto;
+  font-size: 3.5rem;
+  font-weight: 300;
+  animation: lights 5s 750ms linear infinite;
+  justify-content: center;
+  margin-left: 40%;
+}
 input {
   padding: 20px;
   border-radius: 4px;
@@ -78,7 +140,7 @@ input {
   font-size: 16px;
   width: 100%;
   background-color: rgb(3, 3, 81);
-  box-shadow: 0 0 2px 1px #bf00ff;
+  box-shadow: 0 0 2px 1px #ff0015;
   color: #fff;
   width:90%
 }
@@ -99,7 +161,7 @@ button {
 }
 
 button:hover {
-  background-color: #459fff;
+  background-color: #ff0000;
 }
 
 button:disabled {
@@ -186,7 +248,38 @@ h4 {
   border-radius: 20px;
 }
 
-/* Rest of the styles remain unchanged */
+
+/* ... (previous styles) */
+
+.img-container {
+  position: relative;
+  width: 100%;
+}
+
+.welcome-message {
+  position: absolute;
+  top: 20%;
+  left: 22%;
+  color: #fff;
+  font-size: 2.6rem;
+  animation: moveText 4s ease infinite; /* Adjust the animation duration and timing function as needed */
+  text-shadow: 0 0 10px rgba(227, 38, 38, 0.8), 0 0 20px rgba(8, 11, 236, 0.8), 0 0 30px rgba(248, 3, 3, 0.8);
+  z-index: 2;
+}
+
+@keyframes moveText {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -40%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+
 
 .game{
   display: flex;
@@ -256,4 +349,7 @@ margin-bottom: 2%;
 }
 .p{
   color:#fff
+}
+.logo hr {
+  margin-bottom: 0%;
 }
